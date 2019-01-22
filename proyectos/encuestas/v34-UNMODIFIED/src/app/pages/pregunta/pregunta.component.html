@@ -1,0 +1,59 @@
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2">
+ 
+    </div>
+    <div class="col-md-auto">
+      <button *ngIf="existo" class="noMargin"  ><img class="rounded mx-auto d-block" src="assets/img/inicioo.png" (click)="comenzar()"></button>
+    </div>
+    <div class="col col-lg-2">
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!existo">
+
+<p *ngFor="let i of informacionService.formularios" >
+ {{ i.lbl_datos }}
+</p>
+    
+<form (ngSubmit)="newFormulario (newFormularioForm.value)" [formGroup]="newFormularioForm">
+ <div class="form-row">
+
+    <div class="form-group col-md-2"  >
+        <input type="hidden" formControlName="id">
+        <label class="boldlb" for="region">{{ region }}</label>
+        <input formControlName="region" type="text" class="form-control"  placeholder="Nobelaro">
+     
+      </div>
+
+      <div class="form-group col-md-4">
+          <label class="boldlb" for="nombre_asesor">{{ asesor_nombre }}</label>
+          <input formControlName="asesor_nombre" type="text" class="form-control" placeholder="Nombre del asesor">
+        </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label class="boldlb" for="inputCity">{{ cliente_nombre }}</label>
+      <input formControlName="cliente_nombre" type="text" class="form-control" placeholder="Tú nombre" >
+    </div>
+
+    <div class="form-group col-md-4">
+      <label class="boldlb" >{{cliente_correo}}</label>
+      <input formControlName="cliente_correo" type="email" class="form-control" placeholder="tucorreo@electronico.com">
+    </div>
+
+  </div>
+
+
+  <br>
+  <br>
+
+  <input type="submit" class="btn-lg prbtn" [disabled]="newFormularioForm.valid">&nbsp;&nbsp;
+  <button type="button" class="btn-lg scbtn " (click)="cancelar()" >Cancelar</button>
+
+</form>
+</div>

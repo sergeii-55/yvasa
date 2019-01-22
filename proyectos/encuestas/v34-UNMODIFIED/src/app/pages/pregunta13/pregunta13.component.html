@@ -1,0 +1,85 @@
+
+<div  class="box" >
+    <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
+        <p *ngIf="i == 12">
+           {{ pregunta.pregunta }}
+        </p>
+    </div>
+
+ <!---- start table ----->
+ <form (ngSubmit)="newPregunta13 (newPregunta13Form.value)" [formGroup]="newPregunta13Form" ngNativeValidate >
+  <input type="hidden" formControlName="id">
+<div>
+  <div>
+
+<div class="btn-group">
+      <label class="btn btn-light">
+        <br>
+        <img class="card-img-top" src="../assets/img/1.png" alt="Card image cap">
+        <br>
+        <br>
+        <input type="radio" name="options" id="option1" formControlName="pregunta013" value="1" (check)="seleccionar()">
+        <br>
+        <br>
+        <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
+        <br>
+        <label class="form-check-label" for="inlineRadio2">{{ lb_uno }}</label>&nbsp;
+      </label>
+
+      <label class="btn btn-light">
+          <br>
+          <img class="card-img-top" src="../assets/img/2.png" alt="Card image cap">
+          <br>
+          <br>
+          <input type="radio" name="options" id="option2" formControlName="pregunta013" value="2" (check)="seleccionar()" >
+          <br>
+          <br>
+          <label class="form-check-label" for="inlineRadio2">{{ lb_dos }}</label>&nbsp;
+          <br>
+        </label>
+
+        <label class="btn btn-light">
+            <br>
+            <img class="card-img-top" src="../assets/img/3.png" alt="Card image cap">
+            <br>
+            <br>
+            <input type="radio" name="options" id="option3" formControlName="pregunta013" value="3" (check)="seleccionar()">
+            <br>
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_tres }}</label>&nbsp;
+            <br>
+        </label>
+
+        <label class="btn btn-light">
+            <br>
+            <img class="card-img-top" src="../assets/img/4.png" alt="Card image cap">
+            <br>
+            <br>
+            <input type="radio" name="options" id="option4" formControlName="pregunta013" value="4" (check)="seleccionar()">
+            <br>
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_cuatro }}</label>&nbsp;
+            <br>
+          </label>
+
+          <label class="btn btn-light">
+              <br>
+              <img class="card-img-top" src="../assets/img/5.png" alt="Card image cap">
+              <br>
+              <br>
+              <input type="radio" name="options" id="option5" formControlName="pregunta013" value="5" (check)="seleccionar()">
+              <br>
+              <br>
+              <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
+              <br>
+              <label class="form-check-label" for="inlineRadio2">{{ lb_cinco }}</label>&nbsp;
+            </label>
+    
+</div>    
+</div>
+
+  </div>
+  <br>
+    <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta13Form.valid">&nbsp;&nbsp;
+  </form>
+    </div>
