@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.boldlb {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+
+}
+
+.boldlb {
+  text-align: center;
+  font-size: 17px;
+}
+
+.scbtn{
+    background-color: #FFA726;
+   border-color: #FFA726;
+    color: white;
+  }
+ 
+  .prbtn{
+   background-color: #FDD835;
+   border-color: #FDD835;
+   color: white;
+  }
+
+  

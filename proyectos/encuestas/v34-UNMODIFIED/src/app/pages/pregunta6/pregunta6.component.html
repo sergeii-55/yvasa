@@ -1,0 +1,44 @@
+<div class="box" >
+    <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
+        <p *ngIf="i == 5">
+           {{ pregunta.pregunta }}
+        </p>
+    </div>
+
+
+<!---- start table ----->
+<form (ngSubmit)="newPregunta6 (newPregunta6Form.value)" [formGroup]="newPregunta6Form" ngNativeValidate >
+  <input type="hidden" formControlName="id">
+  <div>
+    <div>
+  
+      <label class="btn btn-light">
+        <br>
+        <img class="card-img-top" src="../assets/img/si.png" alt="Card image cap">
+        <br>
+        <br>
+        <input type="radio" name="options" id="option1" formControlName="pregunta06" value="si" (check)="seleccionar()" >
+        <br>
+        <br>
+        <label class="form-check-label" for="inlineRadio2">{{ lb_si }}</label>&nbsp;
+        <br>
+      </label>
+
+  
+        <label class="btn btn-light">
+            <br>
+            <img class="card-img-top" src="../assets/img/no.png" alt="Card image cap">
+            <br>
+            <br>
+            <input type="radio" name="options" id="option2" formControlName="pregunta06" value="no" (check)="seleccionar()" >
+            <br>
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>&nbsp;
+            <br>
+          </label>
+        </div>    
+      </div>
+        <br>
+<input type="submit" class="btn-lg scbtn" [disabled]="newPregunta6Form.valid" >&nbsp;&nbsp;
+</form>
+</div>
