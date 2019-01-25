@@ -43,21 +43,22 @@ export class Pregunta1Component implements OnInit {
 
   }
 
-public newPregunta1 ( form, documentId = this.documentId ) {
-
- const data = {
-    pregunta01: form.pregunta01
+public newPregunta1 ( form )
+{
+    const data = {
+        pregunta01: form.pregunta01
+        };
+    this.firestoreService.createPregunta1(data) 
+    {
+      console.log('Se guardo la INFO');
+      this.newPregunta1Form.setValue({
+        pregunta01: '',
+        id: ''
+      });
+    }; (error) => {
+      console.error(error);
     };
-this.firestoreService.createPregunta1(data).then( ( ) => {
-  console.log('Se guardo la informacion');
-  this.newPregunta1Form.setValue({
-    pregunta01: '',
-    id: ''
-  });
-}, (error) => {
-  console.error(error);
-});
-this.router.navigateByUrl('/pregunta2');
+    this.router.navigateByUrl('/pregunta2');
 }
 
 seleccionar() {

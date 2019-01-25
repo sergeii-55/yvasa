@@ -13,7 +13,7 @@ import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
   styleUrls: ['./pregunta.component.css']
 })
 export class PreguntaComponent implements OnInit {
-
+  id = 'ID';
   region = 'Sucursal';
   asesor_nombre = 'Nombre del asesor';
   cliente_nombre = 'Nombre del cliente';
@@ -22,67 +22,61 @@ export class PreguntaComponent implements OnInit {
   disable = true;
 
   public formularios = [];
-  public documentId = null;
   public currentStatus = 1;
   public newFormularioForm = new FormGroup({
+    id: new FormControl('', Validators.required),
     region: new FormControl('', Validators.required),
     asesor_nombre: new FormControl('', Validators.required),
     cliente_nombre: new FormControl ('', Validators.required),
     cliente_correo: new FormControl('', Validators.required),
-    id: new FormControl('', Validators.required)
   });
 
   constructor(private router: Router,
               public informacionService: InformacionService,
-              public firestoreService: FirestoreService) {
-    this.newFormularioForm.setValue({
-      id: '',
-      region: '',
-      asesor_nombre: '',
-      cliente_nombre: '',
-      cliente_correo: ''
-    });
-
- }
-
+              public firestoreService: FirestoreService)
+               {
+                      this.newFormularioForm.setValue({
+                        id: '',
+                        region: '',
+                        asesor_nombre: '',
+                        cliente_nombre: '',
+                        cliente_correo: '',
+                      });
+               }
  ngOnInit() {
- 
  }
 
-public newFormulario ( form, documentId = this.documentId ) {
-   const data = {  // donde dice const antes habia un let
+public newFormulario ( form )
+{
+   const data = 
+   {  
+    id: form.id,
     region: form.region,
     asesor_nombre: form.asesor_nombre,
     cliente_nombre: form.cliente_nombre,
     cliente_correo: form.cliente_correo
-    }; // agregue punto y coma. No lo tenia
-
-    this.firestoreService.createFormulario(data).then( ( ) => {
-        console.log('Documento creado exitósamente');
-        this.newFormularioForm.setValue({
-          region: '',
-          asesor_nombre: '',
-          cliente_nombre: '',
-          cliente_correo: '',
-          id: ''
-        });
-      }, (error) => {
-        console.error(error);
-    });
-    this.router.navigateByUrl('/pregunta1');
-  }
-
+    }; 
+        this.firestoreService.createFormulario(data).then( () => {
+                console.log('Documento creado exitosamente'+data.id);
+                this.newFormularioForm.setValue({
+                  id: '',
+                  region: '',
+                  asesor_nombre: '',
+                  cliente_nombre: '',
+                  cliente_correo: '',
+                });
+            },   
+                  (error) => {
+                    console.error(error);
+                  });
+    this.router.navigateByUrl('/pregunta1'); 
+}
 
   comenzar() {
-
  this.existo = false;
-
               }
 
   cancelar() {
-
-    // Guardar en base de datos y pasar a la siguiente pagina
-
     this.router.navigateByUrl('/');
     window.location.reload();
   }

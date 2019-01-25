@@ -23,7 +23,7 @@
  <div class="form-row">
 
     <div class="form-group col-sm-12 col-md-6 col-lg-6"  >
-        <input type="hidden" formControlName="id">
+<input formControlName="id" type="text" class="form-control">
         <label class="boldlb" for="region">{{ region }}</label>
         <input formControlName="region" type="text" class="form-control"  placeholder="Nobelaro">
       </div>
@@ -51,7 +51,7 @@
   <br>
   <br>
 <div style="text-align: center;">
-  <input type="submit" class="btn-lg prbtn" [disabled]="newFormularioForm.valid">&nbsp;&nbsp;
+  <input type="submit" class="btn-lg prbtn">&nbsp;&nbsp;
   <button type="button" class="btn-lg scbtn " (click)="cancelar()" >Cancelar</button>
 </div>
 </form>

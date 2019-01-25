@@ -13,8 +13,12 @@ export class FirestoreService {
 
   // crear un nuevo registro
   // se elimino esto despues de data: { region: string, asesor_nombre: string , cliente_nombre: string , cliente_correo: string }
-  public createFormulario ( data: any ) {
-        return this.firestore.collection('formularios').add(data);
+  public createFormulario ( data ) {
+        return this.firestore.collection('formularios').add(data),
+        (function(docRef)
+        {
+         return docRef.id; 
+        });
   }
 
   // obtener un registro
@@ -39,7 +43,7 @@ return this.firestore.collection('formularios').doc(documentId).snapshotChanges(
 
   // Metodos guardado de preguntas en bd
   public createPregunta1 ( data: any ) {
-    return this.firestore.collection('pregunta1').add(data);
+    this.firestore.collection('formularios').doc( "ccc" ).update(data);
 }
 
 public createPregunta2( data: any ) {
