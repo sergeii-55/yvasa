@@ -22,7 +22,7 @@ export class Pregunta10Component implements OnInit {
   public documentId = null;
   public currentStatus = 1;
   public newPregunta10Form = new FormGroup({
-    pregunta010: new FormControl( '' , Validators.required ) ,
+    pregunta10: new FormControl( '' , Validators.required ) ,
     id: new FormControl( '' , Validators.required )
   });
 
@@ -31,24 +31,25 @@ export class Pregunta10Component implements OnInit {
               public informacionService: InformacionService) {
     this.newPregunta10Form.setValue({
       id: '' ,
-      pregunta010: ''
+      pregunta10: ''
     });
   }
   ngOnInit() {}
 
-  public newPregunta10( form , documentId = this.documentId ) {
+  public newPregunta10( form ) {
     const data = {
-      pregunta010: form.pregunta010
+      pregunta10: form.pregunta10
       };
-  this.firestoreService.createPregunta10(data).then( ( ) => {
+  this.firestoreService.createPregunta10(data)
+   {
     console.log('Se guardo la informacion');
     this.newPregunta10Form.setValue({
-      pregunta010: '' ,
+      pregunta10: '' ,
       id: ''
     });
-  }, (error) => {
+  }; (error) => {
     console.error(error);
-  });
+  };
   this.router.navigateByUrl('/pregunta11');
   }
   seleccionar() {}

@@ -22,7 +22,7 @@ export class Pregunta12Component implements OnInit {
   public documentId = null;
   public currentStatus = 1;
   public newPregunta12Form = new FormGroup({
-    pregunta012: new FormControl('' , Validators.required) ,
+    pregunta12: new FormControl('' , Validators.required) ,
     id: new FormControl('' , Validators.required)
 
   });
@@ -32,25 +32,26 @@ export class Pregunta12Component implements OnInit {
               public informacionService: InformacionService) {
     this.newPregunta12Form.setValue({
       id: '' ,
-      pregunta012: ''
+      pregunta12: ''
     });
 }
 
   ngOnInit() {}
 
-  public newPregunta12( form , documentId = this.documentId ) {
+  public newPregunta12( form ) {
     const data = {
-      pregunta012: form.pregunta012
+      pregunta12: form.pregunta12
     };
-    this.firestoreService.createPregunta12(data).then( ( ) => {
+    this.firestoreService.createPregunta12(data) 
+    {
       console.log('Se guardo la informacion');
       this.newPregunta12Form.setValue({
-        pregunta012: '' ,
+        pregunta12: '' ,
         id: ''
       });
-    },(error) => {
+    };(error) => {
       console.error(error);
-    });
+    };
     this.router.navigateByUrl('/pregunta13');
   }
 

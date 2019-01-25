@@ -48,7 +48,7 @@ this.newPregunta2Form.setValue({
 ngOnInit() {
 }
 
-public newPregunta2 ( form, documentId = this.documentId ) {
+public newPregunta2 ( form, ) {
 const data = {
    r1: form.r1,
    r2: form.r2,
@@ -56,7 +56,8 @@ const data = {
    r4: form.r4,
    r5: form.r5
  };
- this.firestoreService.createPregunta2(data).then( ( ) => {
+ this.firestoreService.createPregunta2(data)
+  {
   console.log('Se guardo la informacion');
   this.newPregunta2Form.setValue({
     r1: '',
@@ -66,9 +67,9 @@ const data = {
     r5: '',
     id: ''
   });
-}, (error) => {
+}; (error) => {
   console.error(error);
- });
+ };
 this.router.navigateByUrl('/pregunta3');
 }
 

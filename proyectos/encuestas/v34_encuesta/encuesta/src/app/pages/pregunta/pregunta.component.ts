@@ -4,6 +4,7 @@ import { InformacionService } from 'src/app/services/informacion.service';
 import { FormularioInterface } from '../../interfaces/formulario.interface';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
+import { fromDocRef } from 'angularfire2/firestore';
 
 
 
@@ -56,8 +57,8 @@ public newFormulario ( form )
     cliente_nombre: form.cliente_nombre,
     cliente_correo: form.cliente_correo
     }; 
-        this.firestoreService.createFormulario(data).then( () => {
-                console.log('Documento creado exitosamente'+data.id);
+        this.firestoreService.createFormulario(data).then( ( ) => {
+                console.log('Documento creado exitosamente');
                 this.newFormularioForm.setValue({
                   id: '',
                   region: '',

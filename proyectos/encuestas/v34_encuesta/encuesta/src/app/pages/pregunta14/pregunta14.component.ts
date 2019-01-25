@@ -19,7 +19,7 @@ export class Pregunta14Component implements OnInit {
   public documentId = null;
   public currentStatus = 1;
   public newPregunta14Form = new FormGroup({
-    pregunta014: new FormControl( '' , Validators.required ),
+    pregunta14: new FormControl( '' , Validators.required ),
     id: new FormControl( '' , Validators.required )
   });
 
@@ -30,26 +30,27 @@ export class Pregunta14Component implements OnInit {
                public despedida: DespedidaService) {
       this.newPregunta14Form.setValue({
         id: '' ,
-        pregunta014: ''
+        pregunta14: ''
       });
     }
 
   ngOnInit() {}
 
-  public newPregunta14 ( form, documentId = this.documentId ) {
+  public newPregunta14 ( form ) {
       const data = {
-        pregunta014: form.pregunta014
+        pregunta14: form.pregunta14
       };
-    this.firestoreService.createPregunta14(data).then( ( ) => {
+    this.firestoreService.createPregunta14(data)
+     {
       console.log('Se guardo la informacion');
       this.newPregunta14Form.setValue({
-        pregunta014: '' ,
+        pregunta14: '' ,
         id: ''
       });
-    }, (error) => {
+    }; (error) => {
       console.error(error);
-    });
-  this.router.navigateByUrl('/');
+    };
+  //this.router.navigateByUrl('/');
   this.despedida.despedida();
   }
 

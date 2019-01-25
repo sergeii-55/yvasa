@@ -38,25 +38,24 @@ export class Pregunta7Component implements OnInit {
 
  ngOnInit() {}
 
-public newPregunta7( form, documentId = this.documentId ) {
+public newPregunta7( form ) {
     const data = {
       pregunta07: form.pregunta07
     };
-this.firesoreService.createPregunta7(data).then( ( ) => {
+this.firesoreService.createPregunta7(data)
+{
   console.log('Se guardo la informacion');
   this.newPregunta7Form.setValue({
     pregunta07: '' ,
     id: ''
   });
-}, (error) => {
+}; (error) => {
   console.error(error);
-});
+};
 this.router.navigateByUrl('/pregunta8');
   }
 
 
 seleccionar() {
-
  }
-
 }

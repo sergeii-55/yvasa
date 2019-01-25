@@ -37,23 +37,22 @@ export class Pregunta8Component implements OnInit {
 
 ngOnInit() {}
 
-public newPregunta8( form, documentId = this.documentId) {
+public newPregunta8( form ) {
    const data = {
     pregunta08: form.pregunta08
     };
-this.firestoreService.createPregunta8(data).then( ( ) => {
+this.firestoreService.createPregunta8(data)
+ {
   console.log('Se guardo la información');
   this.newPregunta8Form.setValue({
     pregunta08: '' ,
     id: ''
   });
-}, (error) => {
+}; (error) => {
   console.error(error);
-});
+};
 this.router.navigateByUrl('/pregunta9');
   }
-
-
 
 seleccionar() {
 
