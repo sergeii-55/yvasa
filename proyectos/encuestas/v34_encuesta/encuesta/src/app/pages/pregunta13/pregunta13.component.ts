@@ -43,7 +43,7 @@ export class Pregunta13Component implements OnInit {
     };
   this.firestoreService.createPregunta13(data) 
   {
-  console.log('Se guardo la informacion');
+  console.log('Informacion de pregunta 13 guardada con exito');
   this.newPregunta13Form.setValue({
     pregunta13: '' ,
     id: ''

@@ -14,7 +14,7 @@
         <img class="card-img-top" src="assets/img/feliz.png" alt="Card image cap">
         <br>
         <br>
-        <input type="radio" name="options" id="option1" formControlName="pregunta05" value="Solo vendio" (check)="seleccionar()" >
+        <input type="radio" id="option1" formControlName="pregunta05" value="Solo vendio" (check)="seleccionar()" >
         <br>
         <br>
         <label class="form-check-label" for="inlineRadio2">{{ lb_triste }}</label>&nbsp;
@@ -26,7 +26,7 @@
             <img class="card-img-top" src="assets/img/mfeliz.png" alt="Card image cap">
             <br>
             <br>
-            <input type="radio" name="options" id="option2" formControlName="pregunta05" value="Me ayudo" (check)="seleccionar()" >
+            <input type="radio" id="option2" formControlName="pregunta05" value="Me ayudo" (check)="seleccionar()" >
             <br>
             <br>
             <label class="form-check-label" for="inlineRadio2">{{ lb_feliz }}</label>&nbsp;
@@ -35,7 +35,7 @@
       </div>
         <br>
         <div style="text-align: center;">
-          <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta5Form.valid" >&nbsp;&nbsp;
+          <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta5Form.valid" value="Enviar">&nbsp;&nbsp;
         </div>
   </form>
   <br><br>

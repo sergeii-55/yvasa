@@ -46,7 +46,7 @@ export class Pregunta2Component implements OnInit {
      };
      this.firestoreService.createPregunta2(data)
      {
-      console.log('Se guardo la informacion');
+      console.log('Informacion de pregunta 2 guardada con exito');
       this.newPregunta2Form.setValue({
         pregunta02: '',
         id: ''

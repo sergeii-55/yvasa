@@ -20,7 +20,7 @@
             <img class="card-img-top" src="assets/img/1.png" alt="Card image cap">
             <br>
             <br>
-            <input type="radio" name="options" id="option1" formControlName="pregunta10" value="1" (check)="seleccionar()">
+            <input type="radio" id="option1" formControlName="pregunta10" value="1" (check)="seleccionar()">
             <br>
             <br>
             <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
@@ -33,7 +33,7 @@
               <img class="card-img-top" src="assets/img/2.png" alt="Card image cap">
               <br>
               <br>
-              <input type="radio" name="options" id="option2" formControlName="pregunta10" value="2" (check)="seleccionar()" >
+              <input type="radio" id="option2" formControlName="pregunta10" value="2" (check)="seleccionar()" >
               <br>
               <br>
               <label class="form-check-label" for="inlineRadio2">{{ lb_dos }}</label>&nbsp;
@@ -45,7 +45,7 @@
                 <img class="card-img-top" src="assets/img/3.png" alt="Card image cap">
                 <br>
                 <br>
-                <input type="radio" name="options" id="option3" formControlName="pregunta10" value="3" (check)="seleccionar()">
+                <input type="radio" id="option3" formControlName="pregunta10" value="3" (check)="seleccionar()">
                 <br>
                 <br>
                 <label class="form-check-label" for="inlineRadio2">{{ lb_tres }}</label>&nbsp;
@@ -57,7 +57,7 @@
                 <img class="card-img-top" src="assets/img/4.png" alt="Card image cap">
                 <br>
                 <br>
-                <input type="radio" name="options" id="option4" formControlName="pregunta10" value="4" (check)="seleccionar()">
+                <input type="radio" id="option4" formControlName="pregunta10" value="4" (check)="seleccionar()">
                 <br>
                 <br>
                 <label class="form-check-label" for="inlineRadio2">{{ lb_cuatro }}</label>&nbsp;
@@ -69,7 +69,7 @@
                   <img class="card-img-top" src="assets/img/5.png" alt="Card image cap">
                   <br>
                   <br>
-                  <input type="radio" name="options" id="option5" formControlName="pregunta10" value="5" (check)="seleccionar()">
+                  <input type="radio" id="option5" formControlName="pregunta10" value="5" (check)="seleccionar()">
                   <br>
                   <br>
                   <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
@@ -83,7 +83,7 @@
       </div>
       <br>
       <div style="text-align: center;">
-    <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta10Form.valid" >&nbsp;&nbsp;
+    <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta10Form.valid" value="Enviar">&nbsp;&nbsp;
   </div>
 </form>
 <br>

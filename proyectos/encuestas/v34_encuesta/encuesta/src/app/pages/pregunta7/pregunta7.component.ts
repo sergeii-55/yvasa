@@ -44,7 +44,7 @@ public newPregunta7( form ) {
     };
 this.firesoreService.createPregunta7(data)
 {
-  console.log('Se guardo la informacion');
+  console.log('Informacion de pregunta 7 guardada con exito');
   this.newPregunta7Form.setValue({
     pregunta07: '' ,
     id: ''

@@ -43,7 +43,7 @@ public newPregunta8( form ) {
     };
 this.firestoreService.createPregunta8(data)
  {
-  console.log('Se guardo la información');
+  console.log('Informacion de pregunta 8 guardada con exito');
   this.newPregunta8Form.setValue({
     pregunta08: '' ,
     id: ''
