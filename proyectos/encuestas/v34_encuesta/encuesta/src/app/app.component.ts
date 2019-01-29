@@ -6,8 +6,6 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { DespedidaService } from './services/despedida.service';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,17 +14,12 @@ import { DespedidaService } from './services/despedida.service';
 export class AppComponent {
 
   fin = false;
-  
     constructor(private router: Router ,
                 private http: HttpClient ,
                 public informacionService: InformacionService,
                 private storage: AngularFireStorage,
                 private despedida: DespedidaService ) {
-
-       
                 }
-
-
     }
 
 

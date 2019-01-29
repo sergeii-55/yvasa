@@ -1,42 +1,34 @@
-<div class="container" >
+<div class="container" style="margin: 0px;" id="maximo">
     <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
         <p *ngIf="i == 4">
-           {{ pregunta.pregunta }}
+            ¿Considera que el asesor se preocupó más por <i><b>proporcionarle ayuda</b></i> de acuerdo a sus necesidades que en simplemente vender?
         </p>
     </div>
 
-<!---- start table ----->
 <form (ngSubmit)="newPregunta5 (newPregunta5Form.value)" [formGroup]="newPregunta5Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
-  <div style="text-align: center;">
-      <label class="btn btn-light">
-        <br>
-        <img class="card-img-top" src="assets/img/feliz.png" alt="Card image cap">
-        <br>
-        <br>
-        <input type="radio" id="option1" formControlName="pregunta05" value="Solo vendio" (check)="seleccionar()" >
-        <br>
-        <br>
-        <label class="form-check-label" for="inlineRadio2">{{ lb_triste }}</label>&nbsp;
-        <br>
-      </label>
-  
-        <label class="btn btn-light">
-            <br>
+
+    <div>
+        <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+          <img class="card-img-top" src="assets/img/feliz.png" alt="Card image cap">
+          <br>
+          <input type="radio" id="option1" formControlName="pregunta05" value="Solo vendio" (check)="seleccionar()" >
+          <br>
+          <label class="form-check-label" for="inlineRadio2">{{ lb_triste }}</label>
+          <br>
+        </label>
+    
+        <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
             <img class="card-img-top" src="assets/img/mfeliz.png" alt="Card image cap">
-            <br>
             <br>
             <input type="radio" id="option2" formControlName="pregunta05" value="Me ayudo" (check)="seleccionar()" >
             <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_feliz }}</label>
             <br>
-            <label class="form-check-label" for="inlineRadio2">{{ lb_feliz }}</label>&nbsp;
-            <br>
-          </label>   
+        </label>   
       </div>
-        <br>
-        <div style="text-align: center;">
-          <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta5Form.valid" value="Enviar">&nbsp;&nbsp;
+        <div>
+          <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta5Form.valid" value="Enviar">
         </div>
   </form>
-  <br><br>
-    </div>
+</div>

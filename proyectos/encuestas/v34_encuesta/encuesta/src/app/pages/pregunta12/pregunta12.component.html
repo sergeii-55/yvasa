@@ -1,89 +1,70 @@
-
-<div  class="container" >
+<div  class="container" style="margin: 0px;" id="maximo">
     <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
         <p *ngIf="i == 11">
-           {{ pregunta.pregunta }}
+        ¿Cómo evaluaría <i><b>los entornos</b></i> (parque, calle ,etc.) del fraccionamiento?
         </p>
     </div>
 
-    <!---- start table ----->
-    <form (ngSubmit)="newPregunta12 (newPregunta12Form.value)" [formGroup]="newPregunta12Form" ngNativeValidate >
+<form (ngSubmit)="newPregunta12 (newPregunta12Form.value)" [formGroup]="newPregunta12Form" ngNativeValidate >
       <input type="hidden" formControlName="id">
-    <div>
-      <div>
+<div>
+<div>
     
-<div class="container" style="text-align: center;">
-          <label class="btn btn-light col-sm-12 col-md-6 col-lg-2">
-            <br>
-            <img class="card-img-top" src="assets/img/1.png" alt="Card image cap">
-            <br>
-            <br>
-            <input type="radio" id="option1" formControlName="pregunta12" value="1" (check)="seleccionar()">
-            <br>
-            <br>
-            <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
-            <br>
-            <label class="form-check-label" for="inlineRadio2">{{ lb_uno }}</label>&nbsp;
-          </label>
-    
-          <label class="btn btn-light col-sm-12 col-md-6 col-lg-2">
-              <br>
-              <img class="card-img-top" src="assets/img/2.png" alt="Card image cap">
-              <br>
-              <br>
-              <input type="radio" id="option2" formControlName="pregunta12" value="2" (check)="seleccionar()" >
-              <br>
-              <br>
-              <label class="form-check-label" for="inlineRadio2">{{ lb_dos }}</label>&nbsp;
-              <br><br>
-            </label>
-    
-            <label class="btn btn-light col-sm-12 col-md-6 col-lg-2">
-                <br>
-                <img class="card-img-top" src="assets/img/3.png" alt="Card image cap">
-                <br>
-                <br>
-                <input type="radio" id="option3" formControlName="pregunta12" value="3" (check)="seleccionar()">
-                <br>
-                <br>
-                <label class="form-check-label" for="inlineRadio2">{{ lb_tres }}</label>&nbsp;
-                <br><br>
-            </label>
-    
-            <label class="btn btn-light col-sm-12 col-md-6 col-lg-2">
-                <br>
-                <img class="card-img-top" src="assets/img/4.png" alt="Card image cap">
-                <br>
-                <br>
-                <input type="radio" id="option4" formControlName="pregunta12" value="4" (check)="seleccionar()">
-                <br>
-                <br>
-                <label class="form-check-label" for="inlineRadio2">{{ lb_cuatro }}</label>&nbsp;
-                <br><br>
-              </label>
-    
-              <label class="btn btn-light col-sm-12 col-md-6 col-lg-2">
-                  <br>
-                  <img class="card-img-top" src="assets/img/5.png" alt="Card image cap">
-                  <br>
-                  <br>
-                  <input type="radio" id="option5" formControlName="pregunta12" value="5" (check)="seleccionar()">
-                  <br>
-                  <br>
-                  <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>&nbsp;
-                  <br>
-                  <label class="form-check-label" for="inlineRadio2">{{ lb_cinco }}</label>&nbsp;
-                </label>
-        
-    </div>    
-    </div>
-    
-      </div>
+  <div class="container" id="maximo">
+    <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+      <img class="card-img-top" src="assets/img/1.png" alt="Card image cap">
       <br>
-      <div style="text-align: center;">
-    <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta12Form.valid" value="Enviar">&nbsp;&nbsp;
-  </div>
+      <input type="radio" id="option1" formControlName="pregunta12" value="1" (check)="seleccionar()">
+      <br>
+      <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>
+      <br>
+      <label class="form-check-label" for="inlineRadio2">{{ lb_uno }}</label>
+    </label>
+
+    <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+        <img class="card-img-top" src="assets/img/2.png" alt="Card image cap">
+        <br>
+        <input type="radio" id="option2" formControlName="pregunta12" value="2" (check)="seleccionar()" >
+        <br>
+        <label class="form-check-label" for="inlineRadio2">{{ lb_dos }}</label>
+        <br>
+        <br>
+      </label>
+
+      <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+          <img class="card-img-top" src="assets/img/3.png" alt="Card image cap">
+          <br>
+          <input type="radio" id="option3" formControlName="pregunta12" value="3" (check)="seleccionar()">
+          <br>
+          <label class="form-check-label" for="inlineRadio2">{{ lb_tres }}</label>
+          <br>
+          <br>
+      </label>
+
+      <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+          <img class="card-img-top" src="assets/img/4.png" alt="Card image cap">
+          <br>
+          <input type="radio" id="option4" formControlName="pregunta12" value="4" (check)="seleccionar()">
+          <br>
+          <label class="form-check-label" for="inlineRadio2">{{ lb_cuatro }}</label>
+          <br>
+          <br>
+        </label>
+
+        <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+            <img class="card-img-top" src="assets/img/5.png" alt="Card image cap">
+            <br>
+            <input type="radio" id="option5" formControlName="pregunta12" value="5" (check)="seleccionar()">
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_extremadamente }}</label>
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_cinco }}</label>
+          </label>
+</div>
+</div>
+</div>
+<div>
+    <input type="submit" class=" btn-lg scbtn" [disabled]="newPregunta12Form.valid" value="Enviar">
+</div>
 </form>
-<br>
-<br>
-    </div>
+</div>

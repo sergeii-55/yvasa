@@ -1,25 +1,37 @@
 img
 {
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
 }
 
 p{
   text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-
+  font-size: 18px;
+  margin-bottom: 0;
 }
 
+form{
+  margin-top: 0;
+}
+
+#labon {
+  width: 20%;
+}
+#maximo{
+   min-width:100%;
+   max-width:100%;
+}
 label {
-  text-align: center;
   font-size: 17px;
   font-weight: bold;
-  color: black;
-  font-weight: bold;
-
+  text-align: center;
+  text-align: "." center;
 }
 
+div{
+  text-align: center;
+  padding-left: 0px;padding-right: 0px;
+}
 .box {
   display: table;
   width: 450px;
@@ -28,12 +40,10 @@ label {
   font-size: 14px;
   text-align: center;
   padding: 10px;
- 
-  
 }
 
 
-button 
+button
 {
     background-color: white;
     border-color: white;
@@ -42,4 +52,13 @@ button
 
 input{
     align-content: center;
+}
+
+.trasparent {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }

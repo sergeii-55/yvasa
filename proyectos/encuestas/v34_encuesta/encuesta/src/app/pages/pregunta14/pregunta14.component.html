@@ -1,41 +1,33 @@
-<div class="container" >
+<div class="container" style="margin: 0px;" id="maximo">
     <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
         <p *ngIf="i == 13">
-           {{ pregunta.pregunta }}
+            En general, <i><b>¿Recomendaría a sus conocidos</b></i> la compra de casa en YVASA?
         </p>
-          </div>
+    </div>
 
-<!---- start table ----->
 <form (ngSubmit)="newPregunta14 (newPregunta14Form.value)" [formGroup]="newPregunta14Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
-  <div style="text-align: center;">
-      <label class="btn btn-light">
-        <br>
+
+<div>
+  <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
         <img class="card-img-top" src="assets/img/si.png" alt="Card image cap">
-        <br>
         <br>
         <input type="radio" id="option1" formControlName="pregunta14" value="si" (check)="seleccionar()" >
         <br>
-        <br>
         <label class="form-check-label" for="inlineRadio2">{{ lb_si }}</label>&nbsp;
         <br>
-      </label>
-        <label class="btn btn-light">
-            <br>
+  </label>
+  <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
             <img class="card-img-top" src="assets/img/no.png" alt="Card image cap">
-            <br>
             <br>
             <input type="radio" id="option2" formControlName="pregunta14" value="no" (check)="seleccionar()" >
             <br>
-            <br>
             <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>&nbsp;
             <br>
-          </label>
-        </div> 
-        <br>
-        <div style="text-align: center;">
+  </label>
+</div> 
+    <div>
     <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta14Form.valid" value="Enviar">&nbsp;&nbsp;
   </div>
   </form>
-  <br><br>
-    </div>
+</div>

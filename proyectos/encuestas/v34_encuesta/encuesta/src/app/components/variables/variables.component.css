@@ -1,9 +1,12 @@
 
 h1{
     display: block;
-    color: #666;
-    text-align: center;
+    color: #000296;
+    text-align: right;
     font-size: 24px;    
+}
+img{
+    float: left;
 }
 
 small{
@@ -11,10 +14,8 @@ small{
 }
 
 a{
-
     text-align: left;
-display: block; 
-
+    display: block; 
 }
 
 nav

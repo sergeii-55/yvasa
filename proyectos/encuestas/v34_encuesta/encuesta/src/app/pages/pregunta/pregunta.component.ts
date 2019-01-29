@@ -19,6 +19,7 @@ export class PreguntaComponent implements OnInit {
   asesor_nombre = 'Nombre del asesor';
   cliente_nombre = 'Nombre del cliente';
   cliente_correo = 'Correo electrónico';
+  fecha = "FECHA";
   existo = true;
   disable = true;
 
@@ -30,6 +31,7 @@ export class PreguntaComponent implements OnInit {
     asesor_nombre: new FormControl('', Validators.required),
     cliente_nombre: new FormControl ('', Validators.required),
     cliente_correo: new FormControl('', Validators.required),
+    fecha: new FormControl('', Validators.required),
   });
 
   constructor(private router: Router,
@@ -42,6 +44,7 @@ export class PreguntaComponent implements OnInit {
                         asesor_nombre: '',
                         cliente_nombre: '',
                         cliente_correo: '',
+                        fecha:'',
                       });
                }
  ngOnInit() {
@@ -49,13 +52,21 @@ export class PreguntaComponent implements OnInit {
 
 public newFormulario ( form )
 {
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1; //January is 0!
+  var yyyy = today.getFullYear();
+  var time = today.toLocaleTimeString();
+  var fechal = mm + '-' + dd + '-' + yyyy + '>'+ time;
+
    const data = 
    {  
     id: form.id,
     region: form.region,
     asesor_nombre: form.asesor_nombre,
     cliente_nombre: form.cliente_nombre,
-    cliente_correo: form.cliente_correo
+    cliente_correo: form.cliente_correo,
+    fecha: fechal,
     }; 
         this.firestoreService.createFormulario(data).then( ( ) => {
                 console.log('Documento creado exitosamente');
@@ -65,6 +76,7 @@ public newFormulario ( form )
                   asesor_nombre: '',
                   cliente_nombre: '',
                   cliente_correo: '',
+                  fecha:'',
                 });
             },   
                   (error) => {

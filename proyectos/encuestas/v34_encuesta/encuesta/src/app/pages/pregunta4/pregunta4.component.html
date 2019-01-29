@@ -1,42 +1,34 @@
-<div class="container" >
+<div class="container" style="margin: 0px;" id="maximo">
     <div  *ngFor="let pregunta of informacionService.preguntas; let i = index ">
         <p *ngIf="i == 3">
-           {{ pregunta.pregunta }}
+            ¿El asesor de ventas le proporcionó de <i><b>manera clara</b></i> toda la información que solicitó?
         </p>
           </div>
 
-<!---- start table ----->
 <form (ngSubmit)="newPregunta4 (newPregunta4Form.value)" [formGroup]="newPregunta4Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
-  <div style="text-align: center;">
-      <label class="btn btn-light">
-        <br>
-        <img class="card-img-top" src="assets/img/si.png" alt="Card image cap">
-        <br>
-        <br>
-        <input type="radio" id="option1" formControlName="pregunta04" value="si" (check)="seleccionar()" >
-        <br>
-        <br>
-        <label class="form-check-label" for="inlineRadio2">{{ lb_si }}</label>&nbsp;
-        <br>
+
+  <div>
+      <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
+            <img class="card-img-top" src="assets/img/si.png" alt="Card image cap">
+            <br>
+            <input type="radio" id="option1" formControlName="pregunta04" value="si" (check)="seleccionar()" >
+            <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_si }}</label>
+            <br>
       </label>
-  
-        <label class="btn btn-light">
-            <br>
+
+      <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
             <img class="card-img-top" src="assets/img/no.png" alt="Card image cap">
-            <br>
             <br>
             <input type="radio" id="option2" formControlName="pregunta04" value="no" (check)="seleccionar()" >
             <br>
+            <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>
             <br>
-            <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>&nbsp;
-            <br>
-          </label>
-      </div>
-        <br>
-        <div style="text-align: center;">
-        <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta4Form.valid" value="Enviar">&nbsp;&nbsp;
+      </label>
+  </div>
+        <div>
+        <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta4Form.valid" value="Enviar">
         </div>
   </form>
-  <br><br>
 </div>

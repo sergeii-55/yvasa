@@ -31,10 +31,11 @@ p{
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 img{
-    width: 300px;
+    width: 200px;
 }
 
 .scbtn{
@@ -58,26 +59,3 @@ img{
   border-top-width: 0px;
   border-left-width: 0px;
 }
-
-/*
-.buttons {
-  padding: 15px 25px;
-  font-size: 24px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.buttons:hover {background-color: #3e8e41}
-
-.buttons:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-*/

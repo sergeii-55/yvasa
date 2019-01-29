@@ -19,10 +19,11 @@ export class FirestoreService {
   public createFormulario ( data ) {
         return this.firestore.collection('formularios').add(data).then
         (ref => {
-          data.id = ref.id;
+         data.id = ref.id;
          this.firestore.collection('formularios').doc( ref.id ).update(data);
          this.idol = ref.id;
         });
+        
   }
   // obtener un registro
   public getFormulario ( documentId: string ) {
