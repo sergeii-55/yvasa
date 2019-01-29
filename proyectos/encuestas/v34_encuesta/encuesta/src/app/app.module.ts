@@ -30,10 +30,7 @@ import { DespedidaService } from './services/despedida.service';
 import { Pregunta12Component } from './pages/pregunta12/pregunta12.component';
 import { Pregunta13Component } from './pages/pregunta13/pregunta13.component';
 import { Pregunta14Component } from './pages/pregunta14/pregunta14.component';
-import { PruebaComponent } from './pages/prueba/prueba.component';
-
-
-
+import { Pregunta15Component } from './pages/pregunta15/pregunta15.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +51,7 @@ import { PruebaComponent } from './pages/prueba/prueba.component';
     Pregunta12Component,
     Pregunta13Component,
     Pregunta14Component,
-    PruebaComponent,
+    Pregunta15Component,
   ],
   imports: [
     BrowserModule, RouterModule.forRoot([
@@ -73,8 +70,7 @@ import { PruebaComponent } from './pages/prueba/prueba.component';
       { path: 'pregunta12' , component: Pregunta12Component },
       { path: 'pregunta13' , component: Pregunta13Component },
       { path: 'pregunta14' , component: Pregunta14Component },
-      { path: 'prueba' , component: PruebaComponent }
-
+      { path: 'pregunta15' , component: Pregunta15Component },
     ]),
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),

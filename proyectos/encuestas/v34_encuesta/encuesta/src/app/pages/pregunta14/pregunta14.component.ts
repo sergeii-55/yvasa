@@ -23,7 +23,6 @@ export class Pregunta14Component implements OnInit {
     id: new FormControl( '' , Validators.required )
   });
 
-
   constructor( private router: Router ,
                public informacionService: InformacionService,
                public firestoreService: FirestoreService ,
@@ -50,8 +49,7 @@ export class Pregunta14Component implements OnInit {
     }; (error) => {
       console.error(error);
     };
-  //this.router.navigateByUrl('/');
-  this.despedida.despedida();
+  this.router.navigateByUrl('/pregunta15');
   }
 
   seleccionar() {}
