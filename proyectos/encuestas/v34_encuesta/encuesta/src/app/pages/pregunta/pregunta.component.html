@@ -22,7 +22,12 @@
 <input formControlName="id" type="hidden" class="form-control">
 <input formControlName="fecha" type="hidden" class="form-control">
         <label class="boldlb" for="region">{{ region }}</label>
-        <input formControlName="region" type="text" class="form-control"  placeholder="Nobelaro">
+        <select formControlName="region" type="text" class="form-control" placeholder="Escoje">
+              <option value="Nobelaro">Nobelaro</option>
+              <option value="Portento">Portento</option>
+              <option value="Novel">Novel</option>
+              <option value="Pedregal">Pedregal</option>
+        </select>
       </div>
       <div class="form-group col-sm-12 col-md-6 col-lg-6">
           <label class="boldlb" for="nombre_asesor">{{ asesor_nombre }}</label>
@@ -42,8 +47,8 @@
   </div>
 
 <div style="text-align: center;">
-  <input type="submit" class="btn-lg prbtn" value="Enviar">&nbsp;&nbsp;
-  <button type="button" class="btn-lg scbtn " (click)="cancelar()" >Cancelar</button>
+  <input type="submit" class="btn-lg prbtn" value="Siguiente">&nbsp;&nbsp;
+  <input type="submit" class="btn-lg scbtn" routerLink="/" value="Cancelar" (click)="cancelar()">
 </div>
 </form>
 </div>

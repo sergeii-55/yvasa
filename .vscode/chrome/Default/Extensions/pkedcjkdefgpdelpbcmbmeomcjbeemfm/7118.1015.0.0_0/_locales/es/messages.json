@@ -106,7 +106,7 @@
       "message": "Correo electrónico (opcional):"
    },
    "4097220110929447276": {
-      "message": "Se enviará la versión de Chrome, la versión del sistema operativo, la configuración de Cast, las estadísticas de rendimiento de proyección y los registros de diagnóstico de canales de comunicación, así como la información que selecciones más arriba. Este comentario se utilizará para diagnosticar problemas y ayudar a mejorar la función. La información personal que envíes, ya sea de forma explícita o por error, se protege de acuerdo con nuestras políticas de privacidad. Al enviar este comentario, aceptas que Google pueda utilizarla para mejorar sus productos o servicios."
+      "message": "Se enviará la versión de Chrome, la versión del sistema operativo, la configuración de Cast, las estadísticas de rendimiento de proyección y los registros de diagnóstico de canales de comunicación, así como la información que selecciones más arriba. Este comentario se utilizará para diagnosticar problemas y ayudar a mejorar la función. La información personal que envíes, ya sea de forma explícita o por error, se protege de acuerdo con nuestras políticas de privacidad. Al Siguiente este comentario, aceptas que Google pueda utilizarla para mejorar sus productos o servicios."
    },
    "4148300086676792937": {
       "message": "¿Quieres descartar los comentarios?"
@@ -115,10 +115,10 @@
       "message": "Fallo o error"
    },
    "4246483347873264186": {
-      "message": "Se ha denegado tu solicitud para enviar contenido. Espera un momento antes de volver a intentarlo."
+      "message": "Se ha denegado tu solicitud para Siguiente contenido. Espera un momento antes de volver a intentarlo."
    },
    "4528089202128275824": {
-      "message": "Error al enviar contenido. Vuelve a intentarlo."
+      "message": "Error al Siguiente contenido. Vuelve a intentarlo."
    },
    "4575332923598659024": {
       "message": "No se ha podido resolver el nombre de Hangout. Compruébalo y vuelve a intentarlo."
@@ -127,7 +127,7 @@
       "message": "Ininteligible"
    },
    "4756056595565370923": {
-      "message": "Error al enviar los comentarios. Volviendo a intentarlo..."
+      "message": "Error al Siguiente los comentarios. Volviendo a intentarlo..."
    },
    "492097680647953484": {
       "message": "Solicitud de función"
@@ -162,13 +162,13 @@
       "message": "¿Qué tipo de comentarios nos proporcionas?"
    },
    "545449835455981095": {
-      "message": "Este dispositivo no permite enviar audio del sistema."
+      "message": "Este dispositivo no permite Siguiente audio del sistema."
    },
    "5465034684300203467": {
       "message": "¿Qué contenido o URL estabas enviando?"
    },
    "5485620192329479690": {
-      "message": "Enviar registros de depuración (recomendado)"
+      "message": "Siguiente registros de depuración (recomendado)"
    },
    "5699813974548050528": {
       "message": "Aceptable (FM)"
@@ -180,7 +180,7 @@
       "message": "Mala"
    },
    "5991427458288444010": {
-      "message": "No se ha respondido a tu solicitud para enviar contenido."
+      "message": "No se ha respondido a tu solicitud para Siguiente contenido."
    },
    "6063910461797960050": {
       "message": "El uso de Hangouts está sujeto a la Política de Privacidad de Google."
@@ -218,7 +218,7 @@
       "message": "Escríbenos tus comentarios sobre Google Cast."
    },
    "715869212995214079": {
-      "message": "Enviar $START_LINK$registros de depuración$END_LINK$ (recomendado)",
+      "message": "Siguiente $START_LINK$registros de depuración$END_LINK$ (recomendado)",
       "placeholders": {
          "END_LINK": {
             "content": "$1"
@@ -282,16 +282,16 @@
       "message": "Buscar"
    },
    "8706273405040403641": {
-      "message": "Gracias por enviar tus comentarios."
+      "message": "Gracias por Siguiente tus comentarios."
    },
    "9059560719840598868": {
-      "message": "Enviar comentarios"
+      "message": "Siguiente comentarios"
    },
    "9120942669794506861": {
       "message": "¿Tienes instalado algún tipo especial de software NAS, cortafuegos, proxy o red VPN?"
    },
    "9211708838274008657": {
-      "message": "No se pueden enviar los comentarios. Vuelve a intentarlo más tarde."
+      "message": "No se pueden Siguiente los comentarios. Vuelve a intentarlo más tarde."
    },
    "MEDIA_ROUTER_ADDITIONAL_COMMENTS": {
       "message": "2145752429973207616"

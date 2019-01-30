@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InformacionService } from 'src/app/services/informacion.service';
-import { FormularioInterface } from '../../interfaces/formulario.interface';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
-import { fromDocRef } from 'angularfire2/firestore';
+import { browser } from 'protractor';
 
 
 
@@ -84,13 +83,11 @@ public newFormulario ( form )
                   });
     this.router.navigateByUrl('/pregunta1'); 
 }
-
   comenzar() {
  this.existo = false;
               }
-
   cancelar() {
-    this.router.navigateByUrl('/');
-    window.location.reload();
-  }
+    setTimeout(() => window.location.reload(),500);
+              }
+              
 }

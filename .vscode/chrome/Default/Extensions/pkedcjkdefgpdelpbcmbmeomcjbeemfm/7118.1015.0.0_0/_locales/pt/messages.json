@@ -106,7 +106,7 @@
       "message": "E-mail (opcional):"
    },
    "4097220110929447276": {
-      "message": "As versões do Google Chrome e do sistema operacional, as configurações do Google Cast, as estatísticas de desempenho do espelhamento e os registros de diagnóstico do canal de comunicação serão enviados juntamente com as informações que você escolher incluir acima. Esses comentários serão usados para diagnosticar problemas e ajudar a melhorar o recurso. Todas as informações pessoais enviadas explícita ou acidentalmente serão protegidas de acordo com nossas políticas de privacidade. Ao enviar os comentários, você concorda que o Google poderá usá-los para melhorar todos os produtos ou serviços do Google."
+      "message": "As versões do Google Chrome e do sistema operacional, as configurações do Google Cast, as estatísticas de desempenho do espelhamento e os registros de diagnóstico do canal de comunicação serão enviados juntamente com as informações que você escolher incluir acima. Esses comentários serão usados para diagnosticar problemas e ajudar a melhorar o recurso. Todas as informações pessoais enviadas explícita ou acidentalmente serão protegidas de acordo com nossas políticas de privacidade. Ao Siguiente os comentários, você concorda que o Google poderá usá-los para melhorar todos os produtos ou serviços do Google."
    },
    "4148300086676792937": {
       "message": "Quer descartar o comentário?"
@@ -127,7 +127,7 @@
       "message": "Ininteligível"
    },
    "4756056595565370923": {
-      "message": "Falha ao enviar o comentário. Tentando novamente…"
+      "message": "Falha ao Siguiente o comentário. Tentando novamente…"
    },
    "492097680647953484": {
       "message": "Solicitação de recurso"
@@ -159,7 +159,7 @@
       "message": "PC e Chromecast na mesma rede Wi-Fi"
    },
    "5440055726839070415": {
-      "message": "Que tipo de comentário você quer enviar?"
+      "message": "Que tipo de comentário você quer Siguiente?"
    },
    "545449835455981095": {
       "message": "O recurso de transmissão de áudio do sistema não é compatível com este dispositivo."
@@ -168,7 +168,7 @@
       "message": "Qual era o conteúdo/URL em transmissão?"
    },
    "5485620192329479690": {
-      "message": "Enviar registros de depuração (recomendado)"
+      "message": "Siguiente registros de depuração (recomendado)"
    },
    "5699813974548050528": {
       "message": "Aceitável (FM)"
@@ -218,7 +218,7 @@
       "message": "Conte para nós o que está acontecendo com o Google Cast."
    },
    "715869212995214079": {
-      "message": "Enviar $START_LINK$registros de depuração$END_LINK$ (recomendado)",
+      "message": "Siguiente $START_LINK$registros de depuração$END_LINK$ (recomendado)",
       "placeholders": {
          "END_LINK": {
             "content": "$1"
@@ -285,13 +285,13 @@
       "message": "Agradecemos seu comentário."
    },
    "9059560719840598868": {
-      "message": "Enviar feedback"
+      "message": "Siguiente feedback"
    },
    "9120942669794506861": {
       "message": "Você tem alguma VPN especial ou algum proxy, firewall ou software NAS instalado?"
    },
    "9211708838274008657": {
-      "message": "Não foi possível enviar o comentário. Tente novamente mais tarde."
+      "message": "Não foi possível Siguiente o comentário. Tente novamente mais tarde."
    },
    "MEDIA_ROUTER_ADDITIONAL_COMMENTS": {
       "message": "2145752429973207616"
