@@ -8,7 +8,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Injectable({
   providedIn: 'root'
 })
-export class InformacionService {
+export class InformaciónService {
 
   listo = false;
   formularios: FormularioInterface = {};

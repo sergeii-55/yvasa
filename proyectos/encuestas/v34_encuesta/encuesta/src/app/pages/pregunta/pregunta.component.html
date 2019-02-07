@@ -15,14 +15,14 @@
 
 <p *ngFor="let i of informacionService.formularios">
  {{ i.lbl_datos }}
-</p>
+</p>         
 <form (ngSubmit)="newFormulario (newFormularioForm.value)" [formGroup]="newFormularioForm" style="margin-top: 0;">
  <div class="form-row">
     <div class="form-group col-sm-12 col-md-6 col-lg-6"  >
 <input formControlName="id" type="hidden" class="form-control">
 <input formControlName="fecha" type="hidden" class="form-control">
         <label class="boldlb" for="region">{{ region }}</label>
-        <select formControlName="region" type="text" class="form-control" placeholder="Escoje">
+        <select formControlName="region" type="text" class="form-control" required>
               <option value="Nobelaro">Nobelaro</option>
               <option value="Portento">Portento</option>
               <option value="Novel">Novel</option>
@@ -31,23 +31,23 @@
       </div>
       <div class="form-group col-sm-12 col-md-6 col-lg-6">
           <label class="boldlb" for="nombre_asesor">{{ asesor_nombre }}</label>
-          <input formControlName="asesor_nombre" type="text" class="form-control" placeholder="Nombre del asesor">
+          <input formControlName="asesor_nombre" type="text" class="form-control" required>
         </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-sm-12 col-md-6 col-lg-6">
       <label class="boldlb" for="inputCity">{{ cliente_nombre }}</label>
-      <input formControlName="cliente_nombre" type="text" class="form-control" placeholder="Tú nombre" >
+      <input formControlName="cliente_nombre" type="text" class="form-control" required>
     </div>
     <div class="form-group col-sm-12 col-md-6 col-lg-6">
       <label class="boldlb" >{{cliente_correo}}</label>
-      <input formControlName="cliente_correo" type="email" class="form-control" placeholder="tucorreo@electronico.com">
+      <input formControlName="cliente_correo" type="email" class="form-control" required>
     </div>
   </div>
 
 <div style="text-align: center;">
-  <input type="submit" class="btn-lg prbtn" value="Siguiente">&nbsp;&nbsp;
+  <input type="submit" class="btn-lg prbtn" value="Siguiente" [disabled]="!newFormularioForm.valid">&nbsp;&nbsp;
   <input type="submit" class="btn-lg scbtn" routerLink="/" value="Cancelar" (click)="cancelar()">
 </div>
 </form>

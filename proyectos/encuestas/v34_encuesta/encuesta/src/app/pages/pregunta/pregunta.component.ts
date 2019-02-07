@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { InformacionService } from 'src/app/services/informacion.service';
+import { InformaciónService } from 'src/app/services/informacion.service';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { browser } from 'protractor';
-
-
 
 @Component({
   selector: 'app-pregunta',
   templateUrl: './pregunta.component.html',
   styleUrls: ['./pregunta.component.css']
 })
+
 export class PreguntaComponent implements OnInit {
   id = 'ID';
   region = 'Sucursal';
@@ -20,21 +19,19 @@ export class PreguntaComponent implements OnInit {
   cliente_correo = 'Correo electrónico';
   fecha = "FECHA";
   existo = true;
-  disable = true;
 
   public formularios = [];
-  public currentStatus = 1;
   public newFormularioForm = new FormGroup({
-    id: new FormControl('', Validators.required),
+    id: new FormControl(''),
     region: new FormControl('', Validators.required),
     asesor_nombre: new FormControl('', Validators.required),
     cliente_nombre: new FormControl ('', Validators.required),
     cliente_correo: new FormControl('', Validators.required),
-    fecha: new FormControl('', Validators.required),
+    fecha: new FormControl(''),
   });
 
   constructor(private router: Router,
-              public informacionService: InformacionService,
+              public informacionService: InformaciónService,
               public firestoreService: FirestoreService)
                {
                       this.newFormularioForm.setValue({
@@ -68,7 +65,7 @@ public newFormulario ( form )
     fecha: fechal,
     }; 
         this.firestoreService.createFormulario(data).then( ( ) => {
-                console.log('Documento creado exitosamente');
+                console.log('Documento creado éxitosamente');
                 this.newFormularioForm.setValue({
                   id: '',
                   region: '',
@@ -89,5 +86,6 @@ public newFormulario ( form )
   cancelar() {
     setTimeout(() => window.location.reload(),500);
               }
+
               
 }

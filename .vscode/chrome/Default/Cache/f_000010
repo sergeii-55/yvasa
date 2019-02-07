@@ -121,7 +121,7 @@ var AppComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformacionService"],
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformaciónService"],
             angularfire2_storage__WEBPACK_IMPORTED_MODULE_5__["AngularFireStorage"],
             _services_despedida_service__WEBPACK_IMPORTED_MODULE_6__["DespedidaService"]])
     ], AppComponent);
@@ -256,7 +256,7 @@ var AppModule = /** @class */ (function () {
                 angularfire2__WEBPACK_IMPORTED_MODULE_5__["AngularFireModule"].initializeApp(_environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].firebase),
                 angularfire2_storage__WEBPACK_IMPORTED_MODULE_7__["AngularFireStorageModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"]
             ],
-            providers: [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_23__["AngularFirestore"], _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_24__["FirestoreService"], src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_25__["InformacionService"], _services_despedida_service__WEBPACK_IMPORTED_MODULE_26__["DespedidaService"]],
+            providers: [angularfire2_firestore__WEBPACK_IMPORTED_MODULE_23__["AngularFirestore"], _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_24__["FirestoreService"], src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_25__["InformaciónService"], _services_despedida_service__WEBPACK_IMPORTED_MODULE_26__["DespedidaService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
         })
     ], AppModule);
@@ -442,7 +442,7 @@ var PreguntaComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./pregunta.component.css */ "./src/app/pages/pregunta/pregunta.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformacionService"],
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"]])
     ], PreguntaComponent);
     return PreguntaComponent;
@@ -547,7 +547,7 @@ var Pregunta1Component = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./pregunta1.component.css */ "./src/app/pages/pregunta1/pregunta1.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformacionService"],
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"]])
     ], Pregunta1Component);
     return Pregunta1Component;
@@ -651,7 +651,7 @@ var Pregunta10Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta10Component);
     return Pregunta10Component;
 }());
@@ -755,7 +755,7 @@ var Pregunta11Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             src_app_services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta11Component);
     return Pregunta11Component;
 }());
@@ -858,7 +858,7 @@ var Pregunta12Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta12Component);
     return Pregunta12Component;
 }());
@@ -961,7 +961,7 @@ var Pregunta13Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
             src_app_services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta13Component);
     return Pregunta13Component;
 }());
@@ -1063,7 +1063,7 @@ var Pregunta14Component = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./pregunta14.component.css */ "./src/app/pages/pregunta14/pregunta14.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformacionService"],
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_5__["FirestoreService"],
             _services_despedida_service__WEBPACK_IMPORTED_MODULE_6__["DespedidaService"]])
     ], Pregunta14Component);
@@ -1170,7 +1170,7 @@ var Pregunta2Component = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./pregunta2.component.css */ "./src/app/pages/pregunta2/pregunta2.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformacionService"],
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_5__["FirestoreService"]])
     ], Pregunta2Component);
     return Pregunta2Component;
@@ -1275,7 +1275,7 @@ var Pregunta3Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta3Component);
     return Pregunta3Component;
 }());
@@ -1373,7 +1373,7 @@ var Pregunta4Component = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./pregunta4.component.css */ "./src/app/pages/pregunta4/pregunta4.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformacionService"],
+            _services_informacion_service__WEBPACK_IMPORTED_MODULE_4__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_5__["FirestoreService"]])
     ], Pregunta4Component);
     return Pregunta4Component;
@@ -1474,7 +1474,7 @@ var Pregunta5Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta5Component);
     return Pregunta5Component;
 }());
@@ -1574,7 +1574,7 @@ var Pregunta6Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta6Component);
     return Pregunta6Component;
 }());
@@ -1678,7 +1678,7 @@ var Pregunta7Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             src_app_services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta7Component);
     return Pregunta7Component;
 }());
@@ -1782,7 +1782,7 @@ var Pregunta8Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             src_app_services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta8Component);
     return Pregunta8Component;
 }());
@@ -1886,7 +1886,7 @@ var Pregunta9Component = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             src_app_services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_4__["FirestoreService"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformacionService"]])
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_5__["InformaciónService"]])
     ], Pregunta9Component);
     return Pregunta9Component;
 }());
@@ -2007,7 +2007,7 @@ var PruebaComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./prueba.component.css */ "./src/app/pages/prueba/prueba.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformacionService"],
+            src_app_services_informacion_service__WEBPACK_IMPORTED_MODULE_3__["InformaciónService"],
             _services_firestore_firestore_service__WEBPACK_IMPORTED_MODULE_5__["FirestoreService"]])
     ], PruebaComponent);
     return PruebaComponent;
@@ -2162,20 +2162,20 @@ var FirestoreService = /** @class */ (function () {
 /*!*************************************************!*\
   !*** ./src/app/services/informacion.service.ts ***!
   \*************************************************/
-/*! exports provided: InformacionService */
+/*! exports provided: InformaciónService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformacionService", function() { return InformacionService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InformaciónService", function() { return InformaciónService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 
 
 
-var InformacionService = /** @class */ (function () {
-    function InformacionService(http) {
+var InformaciónService = /** @class */ (function () {
+    function InformaciónService(http) {
         this.http = http;
         this.listo = false;
         this.formularios = {};
@@ -2187,7 +2187,7 @@ var InformacionService = /** @class */ (function () {
         this.listo = true;
     }
     //comentario BRANCH
-    InformacionService.prototype.cargarFormularios = function () {
+    InformaciónService.prototype.cargarFormularios = function () {
         var _this = this;
         this.http.get('https://encuestas-1b232.firebaseio.com/formulario.json')
             .subscribe(function (resp) {
@@ -2195,7 +2195,7 @@ var InformacionService = /** @class */ (function () {
             console.log(_this.formularios);
         });
     };
-    InformacionService.prototype.cargarImagenes = function () {
+    InformaciónService.prototype.cargarImagenes = function () {
         var _this = this;
         this.http.get('https://encuestas-1b232.firebaseio.com/img.json')
             .subscribe(function (res) {
@@ -2203,7 +2203,7 @@ var InformacionService = /** @class */ (function () {
             console.log(_this.imagenes);
         });
     };
-    InformacionService.prototype.cargarPreguntas = function () {
+    InformaciónService.prototype.cargarPreguntas = function () {
         var _this = this;
         this.http.get('https://encuestas-1b232.firebaseio.com/preguntas.json')
             .subscribe(function (respt) {
@@ -2211,13 +2211,13 @@ var InformacionService = /** @class */ (function () {
             console.log(_this.preguntas);
         });
     };
-    InformacionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    InformaciónService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
             providedIn: 'root'
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
-    ], InformacionService);
-    return InformacionService;
+    ], InformaciónService);
+    return InformaciónService;
 }());
 
 

@@ -96,6 +96,7 @@ public createPregunta13( data: any ) {
 
 public createPregunta14( data: any ) {
   this.firestore.collection('formularios').doc( this.idol ).update(data);
+
 }
 
 }

@@ -12,7 +12,7 @@
   <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
         <img class="card-img-top" src="assets/img/si.png" alt="Card image cap">
         <br>
-        <input type="radio" id="option1" formControlName="pregunta14" value="si" (check)="seleccionar()" >
+        <input type="radio" id="option1" formControlName="pregunta14" value="si"  >
         <br>
         <label class="form-check-label" for="inlineRadio2">{{ lb_si }}</label>
         <br>
@@ -20,7 +20,7 @@
   <label id="labon" class="btn btn-light col-sm-12 col-md-2 col-lg-2">
             <img class="card-img-top" src="assets/img/no.png" alt="Card image cap">
             <br>
-            <input type="radio" id="option2" formControlName="pregunta14" value="no" (check)="seleccionar()" >
+            <input type="radio" id="option2" formControlName="pregunta14" value="no" >
             <br>
             <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>
             <br>
@@ -28,7 +28,10 @@
   
 </div> 
     <div>
-    <input type="submit" class="btn-lg scbtn" [disabled]="newPregunta14Form.valid" value="Siguiente">
+    <input type="button" class="btn-lg scbtn" *ngIf="this.isButtonVisible" value="Porque" [disabled]="!newPregunta14Form.valid" (click)="this.isButtonVisible = false; sweet()"><br/>
+    <input type="submit" class="btn-lg scbtn" *ngIf="this.isButtonNOTVisible" value="Siguiente">
   </div>
+
+  
   </form>
 </div>

@@ -25,7 +25,7 @@ import { VariablesComponent } from './components/variables/variables.component';
 import { PreguntaComponent } from './pages/pregunta/pregunta.component';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { FirestoreService } from './services/firestore/firestore.service';
-import { InformacionService } from 'src/app/services/informacion.service';
+import { InformaciónService } from 'src/app/services/informacion.service';
 import { DespedidaService } from './services/despedida.service';
 import { Pregunta12Component } from './pages/pregunta12/pregunta12.component';
 import { Pregunta13Component } from './pages/pregunta13/pregunta13.component';
@@ -76,7 +76,7 @@ import { Pregunta15Component } from './pages/pregunta15/pregunta15.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule, ReactiveFormsModule, FormsModule
   ],
-  providers: [  AngularFirestore, FirestoreService, InformacionService , DespedidaService],
+  providers: [  AngularFirestore, FirestoreService, InformaciónService , DespedidaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

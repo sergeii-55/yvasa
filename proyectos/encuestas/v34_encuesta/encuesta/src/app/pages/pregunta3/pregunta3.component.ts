@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore/firestore.service';
-import { InformacionService } from 'src/app/services/informacion.service';
+import { InformaciónService } from 'src/app/services/informacion.service';
 
 @Component({
   selector: 'app-pregunta3',
@@ -18,18 +18,20 @@ export class Pregunta3Component implements OnInit {
   lb_cuatro = 'Satisfecho';
   lb_cinco = 'satisfecho';
   lb_extremadamente = 'Extremadamente';
+  selected = "5";
+ 
 
       public pregunta3 = [];
       public documentId = null;
       public currentStatus = 1;
       public newPregunta3Form = new FormGroup({
        pregunta03: new FormControl( '' , Validators.required ),
-       id: new FormControl( '' , Validators.required )
+       id: new FormControl( '' )
       });
 
   constructor( private router: Router,
                public firestoreService: FirestoreService ,
-               public informacionService: InformacionService) {
+               public informacionService: InformaciónService) {
   this.newPregunta3Form.setValue({
     id: '' ,
     pregunta03: ''
@@ -44,7 +46,7 @@ export class Pregunta3Component implements OnInit {
       };
     this.firestoreService.createPregunta3(data)
     {
-      console.log('Informacion de pregunta 3 guardada con exito');
+      console.log('Información de pregunta 3 guardada con éxito');
       this.newPregunta3Form.setValue({
         pregunta03: '' ,
         id: '' 
