@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { InformaciónService } from 'src/app/services/informacion.service';
 import { FirestoreService } from '../../services/firestore/firestore.service';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
-import { browser } from 'protractor';
 
 @Component({
   selector: 'app-pregunta',

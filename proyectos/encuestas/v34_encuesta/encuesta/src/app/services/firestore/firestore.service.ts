@@ -3,8 +3,6 @@ import { AngularFirestore, AngularFirestoreDocument, fromDocRef, DocumentSnapsho
 import { Observable } from 'rxjs';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
-
-
 @Injectable({
   providedIn: 'root'
 })

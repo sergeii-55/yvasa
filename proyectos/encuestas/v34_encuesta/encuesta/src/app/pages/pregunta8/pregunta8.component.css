@@ -6,7 +6,7 @@ img
 
 p{
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 0;
 }
 
@@ -17,6 +17,15 @@ form{
 #labon {
   width: 20%;
 }
+
+#option1, #option2, #option3, #option4, #option5 {
+  display: inline-block;     
+  position: relative;    
+  z-index: 1;     
+  padding: 100px;     
+  margin: -100px; 
+}
+
 #maximo{
    min-width:100%;
    max-width:100%;
@@ -42,13 +51,11 @@ div{
   padding: 10px;
 }
 
-
 button
 {
     background-color: white;
     border-color: white;
 }
-
 
 input{
     align-content: center;
