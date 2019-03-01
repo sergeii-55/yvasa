@@ -21,10 +21,10 @@ export class FirestoreService {
          this.firestore.collection('formularios').doc( ref.id ).update(data);
          this.idol = ref.id;
         });
-        
+         
   }
   // obtener un registro
-  public getFormulario ( documentId: string ) {
+  public getFormulario ( documentId: string ) { 
 return this.firestore.collection('formularios').doc(documentId).snapshotChanges();
   }
   // Obtener todos los registros
