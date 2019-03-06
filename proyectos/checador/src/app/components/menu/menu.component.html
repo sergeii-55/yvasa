@@ -1,0 +1,50 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="col-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="./assets/Yvasa_logo.png">
+  </a>
+</nav>
+<body>
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+          <br/><br/><br/>
+        <!-- Show user data when logged in -->
+        <div class="row" *ngIf="authService.userData as user">
+          <div class="col-md-12">
+            <div class="media">
+                <h2><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h2>
+              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{user.displayName}}">
+              <div class="media-body">
+                <!-- <p>User ID: <strong>{{user.uid}}</strong></p> -->
+                <p>Email: <strong>{{user.email}}</strong></p>
+              <div id="menu">
+                            <button type="button" class="btn btn-success">
+                                Checar Entrada
+                              </button><br/>
+                              <button type="button" class="btn btn-danger">
+                                  Checar Salida
+                                </button><br/>    
+                                <button type="button" class="btn btn-info">
+                                    Checar Semana
+                                  </button><br/> 
+                                  <button type="button" class="btn btn-primary" (click)="authService.SignOut()">
+                                      SALIR
+                                    </button><br/>       
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>
+</body>
