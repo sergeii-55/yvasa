@@ -22,21 +22,21 @@
                 alt="{{user.displayName}}">
               <div class="media-body">
                 <!-- <p>User ID: <strong>{{user.uid}}</strong></p> -->
-                <p>Email: <strong>{{user.email}}</strong></p>
-              <div id="menu">
-                            <button type="button" class="btn btn-success">
-                                Checar Entrada
+                <p>Email: </p><strong>{{user.email}}</strong>
+                     <div id="menu">
+                            <button type="button" class="btn btn-block btn-success" (click)="openDialog()">
+                              <i class="fas fa-check"></i>Checar Entrada
                               </button><br/>
-                              <button type="button" class="btn btn-danger">
-                                  Checar Salida
+                              <button type="button" class="btn btn-block btn-danger" (click)="closeDialog()">
+                                <i class="fas fa-check-double"></i>Checar Salida
                                 </button><br/>    
-                                <button type="button" class="btn btn-info">
-                                    Checar Semana
+                                <button type="button" class="btn btn-block btn-info" (click)="authService.Reporte()">
+                                  <i class="far fa-calendar-alt"></i> Revisar Semana
                                   </button><br/> 
-                                  <button type="button" class="btn btn-primary" (click)="authService.SignOut()">
-                                      SALIR
+                                  <button type="button" class="btn btn-block btn-primary" (click)="authService.SignOut()">
+                                    <i class="fas fa-sign-out-alt"></i>SALIR
                                     </button><br/>       
-              </div>
+                    </div> 
               </div>
             </div>
           </div>

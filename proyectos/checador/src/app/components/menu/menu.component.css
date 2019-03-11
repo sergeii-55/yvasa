@@ -647,14 +647,14 @@ body .table thead th {
 
   .media {
     display: block;
-  }
+  } 
 
-  .menu{
-      background: #FF8B00;
+  #menu{
+    margin: 15px; 
   }
 
   .rounded-circle {
-    border:5px solid #FF8B00;
+    border:10px solid #FF8B00;
     max-width: 200px;
     margin: 0 auto 20px !important;
     display: block;
@@ -677,3 +677,4 @@ body .table thead th {
     display: none;
   }
 }
+
