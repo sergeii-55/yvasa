@@ -48,13 +48,19 @@ export class AuthService {
     .then((result) => {
        this.ngZone.run(() => {
           this.router.navigate(['menu']);
+
         })
       this.SetUserData(result.user);
+//guardar valores del user y de result
+//guardar el GEOL
 
+// llenar el geo
     }).catch((error) => {
       window.alert(error)
     })
   }
+
+
 
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
@@ -66,7 +72,9 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      emailVerified: user.emailVerified,
+      creacion: user.creationTime,
+      ultimo: user.lastSignInTime
     }
     return userRef.set(userData, {
       merge: true
@@ -86,7 +94,4 @@ export class AuthService {
       this.router.navigate(['reporte'])
     })
   }
-
-
-
 }

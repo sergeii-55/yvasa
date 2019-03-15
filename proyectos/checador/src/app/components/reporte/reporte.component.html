@@ -42,9 +42,11 @@
 
   </tbody>
 </table><br/>
-<!-- <div class="row" *ngIf="authService.userData as user">
+<div class="row" *ngIf="authService.userData as user">
 <p>Email: </p><strong>{{user.email}}</strong>
-</div> -->
+<p>creacion: </p><strong>{{user.creationTime}}</strong>
+<p>lastLogIn: </p><strong>{{user.lastSignInTime}}</strong>
+</div>
 <div class="redirectToLogin">
             <button class="btn btn-block btn-primary"  routerLink="/menu">Regresar</button>
     <br/>     
