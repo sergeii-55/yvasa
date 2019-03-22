@@ -2,6 +2,11 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
+import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'src/app/shared/services/user';
+import { Tarjeta } from 'src/app/shared/services/tarjeta';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-menu',
@@ -12,25 +17,27 @@ import Swal from 'sweetalert2';
 
 export class MenuComponent implements OnInit {
 
-public LAT: any;
-public LON: any;
-  
 constructor(
+    public afs: AngularFirestore,
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone
   ) { }
 
-  ngOnInit() {}
-
-  openDialog(){
-    navigator.geolocation.getCurrentPosition(success)
-
-    function success(pos) {
+  public LAT:any;
+  public LON:any;
+  
+  ngOnInit() {
+    navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
       let x = pos.coords;
+      this.LAT = x.latitude;
+      this.LON = x.longitude;
+    });
+  }
+  openDialog(){
       Swal.fire({
         title: 'Registrado!',
-        text: 'tu checada de Entrada a sido exitosa  -  latitud:'+x.latitude+" - longitud:"+x.longitude,
+        text: 'tu checada de Entrada a sido exitosa  -  latitud:'+this.LAT+" - longitud:"+this.LON,
         imageUrl: './assets/mapa.png',
         imageWidth: 400,
         imageHeight: 200,
@@ -38,19 +45,42 @@ constructor(
         confirmButtonColor: '#028e00',
         animation: false
       })
-    };
+  }
 
- 
+  TarjetaEntrada(user) {
+    //Date.getFullYear();
+    var year = new Date();
+    var meses: string[] = ["01_Enero", "02_Febrero", "03_Marzo", "04_Abril", "05_Mayo", "06_Junio", "07_Julio", "08_Agosto", "09_Septiembre", "10_Octubre", "11_Noviembre", "12_Diciembre", ];
+    var mesActual = meses[year.getMonth()];
+        // let dateFormat = require('dateformat');
+        // let now = new Date();
+        // dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc( year.getFullYear()+`/`+mesActual);
+    const tarjeta: Tarjeta = {
+      semana:10,
+       periodo_de:null,
+       periodo_a:null,
+      nombre:user.displayName,
+      grupo:"sistemas",
+      dia:"lunes",
+      entrada:08.23,
+      salida:null,
+      latitud:this.LAT,
+      longitud:this.LON,
+      retraso:5,
+      xtra1:"",
+      xtra2:""
+    }
+    return userRef.set(tarjeta, {
+      merge: true
+    })
   }
 
   closeDialog(){
-    navigator.geolocation.getCurrentPosition(success)
-
-    function success(pos) {
-      let x = pos.coords;
     Swal.fire({
       title: 'Registrado!',
-      text: 'tu checada de Salida a sido exitosa   -  latitud:'+x.latitude+" - longitud:"+x.longitude,
+      text: 'tu checada de Salida a sido exitosa   -  latitud:'+this.LAT+" - longitud:"+this.LON,
       imageUrl: './assets/mapa.png',
       imageWidth: 400,
       imageHeight: 200,
@@ -58,7 +88,6 @@ constructor(
       confirmButtonColor: '#db0000',
       animation: false
     })
-  };
   }
 
 }
