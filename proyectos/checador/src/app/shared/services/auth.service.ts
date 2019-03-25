@@ -56,8 +56,6 @@ export class AuthService {
     })
   }
 
-
-
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -68,7 +66,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified
+      area: "sistemas" //falta identificar como capturar area
     }
     return userRef.set(userData, {
       merge: true

@@ -20,9 +20,10 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
+
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
-
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { AuthService } from "./shared/services/auth.service";
     AngularFirestoreModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
