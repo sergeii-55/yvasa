@@ -46,11 +46,14 @@ export class AuthService {
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
-       this.ngZone.run(() => {
+      if (result.additionalUserInfo.profile.hd == "yvasa.com")
+      {
+        console.log(provider);
+        this.ngZone.run(() => {
           this.router.navigate(['menu']);
         })
       this.SetUserData(result.user);
-
+      }else{ window.alert("Dominio no valido. Ingresa con tu cuenta de @yvasa.com");}
     }).catch((error) => {
       window.alert(error)
     })
@@ -66,7 +69,7 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      area: "sistemas" //falta identificar como capturar area
+      area: "sistemas"
     }
     return userRef.set(userData, {
       merge: true

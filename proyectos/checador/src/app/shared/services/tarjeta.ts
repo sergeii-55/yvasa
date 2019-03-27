@@ -8,7 +8,7 @@ export interface Tarjeta {
     grupo:string;
     dia:string;
     entrada:string;
-    salida:number;
+    salida:string;
     latitud:number;
     longitud:number;
     retraso:string;
