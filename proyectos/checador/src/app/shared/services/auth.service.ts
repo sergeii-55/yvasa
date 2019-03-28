@@ -4,6 +4,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -46,9 +47,8 @@ export class AuthService {
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
-      if (result.additionalUserInfo.profile.hd == "yvasa.com")
+      if (result.additionalUserInfo.profile.hd == "yvasa.com") // TODO  ---  revisar que no entre a este ciclo cuando se guarda el usuario, o revisar el log out
       {
-        console.log(provider);
         this.ngZone.run(() => {
           this.router.navigate(['menu']);
         })

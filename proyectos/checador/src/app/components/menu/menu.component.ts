@@ -6,6 +6,9 @@ import * as moment from 'moment';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { User } from 'src/app/shared/services/user';
 import { Tarjeta } from 'src/app/shared/services/tarjeta';
+import { userInfo } from 'os';
+import { Key } from 'protractor';
+
 
 @Component({
   selector: 'app-menu',
@@ -38,6 +41,7 @@ constructor(
       this.LAT = x.latitude;
       this.LON = x.longitude;
     },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
+
   }
 
   // metodo que se activa al presionar el boton y llevar la informacion de entrada
@@ -67,8 +71,9 @@ constructor(
               }
     //codigo de periodo de semana 
     var now = moment();
-    var monday = now.clone().weekday(1).toString(); //Monday // TODO --- reiniciar tiempo a 12:00 am
-    var sunday = now.clone().weekday(7).toString(); //Sunday // TODO --- establecer el tiempo a 11:59 pm
+    var monday = now.clone().weekday(1).set({hour:0,minute:0,second:0,millisecond:0}).toString(); //Monday 
+    var sunday = now.clone().weekday(7).set({hour:23,minute:59,second:59,millisecond:0}).toString(); //Sunday 
+    
 
     //query de envio de datos x medio del AngularFirestoreDocument
     const userRef: AngularFirestoreDocument<any> = this.afs.collection(year.getFullYear().toString()).doc(mesActual).collection('Semana'+semaMo).doc(user.displayName).collection(diaMo).doc("Entrada");
@@ -87,7 +92,7 @@ constructor(
       semana:semaMo, //numero de semana
       xtra1:"", //campo 1 extra para futuras implementaciones ;-)
       xtra2:""  //campo 2 extra para futuras implementaciones ;-)
-      // TODO --- capturar MAC address
+      // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
     }
     //regresa la consulta y con merge la fuciona(en caso de exitir en servidor. la reemplaza)
     try {
