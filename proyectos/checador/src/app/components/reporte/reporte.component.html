@@ -37,7 +37,7 @@
       <tr class="pure-table-odd">
           <td>8/oct</td>
           <td>8:00am</td>
-          <td>6:34pm</td>
+          <td>6:34pm</td> 
       </tr>
 
   </tbody>
@@ -48,7 +48,7 @@
 <p>lastLogIn: </p><strong>{{user.lastSignInTime}}</strong>
 </div>
 <div class="redirectToLogin">
-            <button class="btn btn-block btn-primary"  routerLink="/menu">Regresar</button>
+            <button class="btn btn-block btn-primary" (click)="authService.menu()">Regresar</button>
     <br/>     
 </div>
 </div>

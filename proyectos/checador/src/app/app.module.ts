@@ -24,6 +24,7 @@ import { FirestoreSettingsToken} from '@angular/fire/firestore';
 
 // Auth service
 import { AuthService } from "./shared/services/auth.service";
+import { MailUserComponent } from './components/mail-user/mail-user.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthService } from "./shared/services/auth.service";
     MenuComponent,
     ManagerComponent,
     ReporteComponent,
-    SignInComponent
+    SignInComponent,
+    MailUserComponent
   ],
   imports: [
     BrowserModule,

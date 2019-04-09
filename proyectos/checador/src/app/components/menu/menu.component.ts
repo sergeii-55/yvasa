@@ -4,10 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
-import { User } from 'src/app/shared/services/user';
 import { Tarjeta } from 'src/app/shared/services/tarjeta';
-import { userInfo } from 'os';
-import { Key } from 'protractor';
 
 
 @Component({
@@ -37,11 +34,10 @@ constructor(
       maximumAge: 5000 //segundos de info guardada en dispositvo ...imagen no mas vieja a 5 segs
     };
     navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
-      let x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
+      var x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
       this.LAT = x.latitude;
       this.LON = x.longitude;
     },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
-
   }
 
   // metodo que se activa al presionar el boton y llevar la informacion de entrada
@@ -66,14 +62,13 @@ constructor(
               { 
                 var retraso = "SIN RETRASO";
               }else if (pasa == true) 
-              {// calculo para sacar los minutos de retraso ///debera implementarse para cuando sea menor a las 8:00 am
+              {// calculo para sacar los minutos de retraso // TODO --- debera implementarse para cuando sea menor a las 8:00 am
                  var retraso = moment().subtract(8, "hours").format('HH:mm:ss').toString();
               }
     //codigo de periodo de semana 
     var now = moment();
     var monday = now.clone().weekday(1).set({hour:0,minute:0,second:0,millisecond:0}).toString(); //Monday 
     var sunday = now.clone().weekday(7).set({hour:23,minute:59,second:59,millisecond:0}).toString(); //Sunday 
-    
 
     //query de envio de datos x medio del AngularFirestoreDocument
     const userRef: AngularFirestoreDocument<any> = this.afs.collection(year.getFullYear().toString()).doc(mesActual).collection('Semana'+semaMo).doc(user.displayName).collection(diaMo).doc("Entrada");
@@ -81,6 +76,7 @@ constructor(
     const tarjeta: Tarjeta = { 
       dia:diaMo, //dia actual
       entrada:entradaMo,//hora de checada
+      // FIXME --- aqui trabajamos con el fingerprintJS para capturar datos no existentes como el area
       grupo:"sistemas", // TODO --- falta como separarlos
       latitud:this.LAT, //latitud
       longitud:this.LON, //longitud
@@ -93,7 +89,9 @@ constructor(
       xtra1:"", //campo 1 extra para futuras implementaciones ;-)
       xtra2:""  //campo 2 extra para futuras implementaciones ;-)
       // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
-    }
+      // FIXME --- trabajar con fingerprintJS para adecuar una MAC
+    } 
+    
     //regresa la consulta y con merge la fuciona(en caso de exitir en servidor. la reemplaza)
     try {
       await userRef.set(tarjeta, {
@@ -114,10 +112,8 @@ constructor(
       window.alert(error);
     }
    // TODO --- desabilitar boton de checar entrada y cambiarlo a "Entrada ya a sido checada"
-  }
-
+  } // fin de checarEntrada()
   async ChecarSalida(){
-    
     
   }
 
