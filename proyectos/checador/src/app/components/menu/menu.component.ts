@@ -27,6 +27,7 @@ constructor(
   public LON:any;
   
   ngOnInit() {
+    // TODO --- implementar el getCurrentposition en los checados, ya que no actualiza las coordenadas
     //opciones para el metodo de getCurrentPosition
       var options = {
       enableHighAccuracy: true, //mejora la posicion
@@ -51,7 +52,7 @@ constructor(
     var mesActual = meses[year.getMonth()];
     //se preparan las variables para que se usaran en los datos de la tarjeta
       var semaMo = moment().week(); //numero de semana
-      var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....)
+      var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....) //TODO --- pasarlo a espanol
       var entradaMo = moment().format('HH:mm:ss'); //Hora actual para el checado
       var entradaCOMP = moment();
       var hoy = moment();
@@ -115,6 +116,19 @@ constructor(
   } // fin de checarEntrada()
   async ChecarSalida(){
     
+  }
+
+  async Entrada(){
+    Swal.fire({
+      title: 'Registrado!',
+      text: 'tu checada de Entrada a sido exitosa  -  latitud:'+this.LAT+" - longitud:"+this.LON,
+      imageUrl: './assets/mapa.png',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'map.google.2019',
+      confirmButtonColor: '#028e00',
+      animation: false
+    })
   }
 
 }

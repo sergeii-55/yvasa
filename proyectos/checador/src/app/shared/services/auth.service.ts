@@ -72,13 +72,6 @@ export class AuthService {
             confirmButtonText: 'Si, registrarlo'
           }).then((result) => {
             if (result.value) {
-
-              //
-              // return this.afAuth.auth.signOut().then(() => {
-              //   this.router.navigate(['menu'])
-              // })
-              //
-              
               this.ngZone.run(() => {
                 this.router.navigate(['mail-user']);
               })
