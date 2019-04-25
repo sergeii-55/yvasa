@@ -27,22 +27,23 @@ constructor(
   public LON:any;
   
   ngOnInit() {
-    // TODO --- implementar el getCurrentposition en los checados, ya que no actualiza las coordenadas
-    //opciones para el metodo de getCurrentPosition
-      var options = {
-      enableHighAccuracy: true, //mejora la posicion
-      timeout: 5000, //esperar no mas de 5 segs
-      maximumAge: 5000 //segundos de info guardada en dispositvo ...imagen no mas vieja a 5 segs
-    };
-    navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
-      var x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
-      this.LAT = x.latitude;
-      this.LON = x.longitude;
-    },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
   }
 
   // metodo que se activa al presionar el boton y llevar la informacion de entrada
   async ChecarEntrada() {
+
+        //opciones para el metodo de getCurrentPosition //capturar latitud y longitud
+        var options = {
+          enableHighAccuracy: true, //mejora la posicion
+          timeout: 5000, //esperar no mas de 5 segs
+          maximumAge: 5000 //segundos de info guardada en dispositvo ...imagen no mas vieja a 5 segs
+        };
+        navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
+          var x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
+          this.LAT = x.latitude;
+          this.LON = x.longitude;
+        },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
+
     // obtenemos la info del usuario previamente guardada en el .TS de auth.service. lo sacamos del storage del dispositivo
     var user = JSON.parse(localStorage.getItem('user'));
     //variable para tiempo y conversion de meses a espanol
@@ -104,7 +105,7 @@ constructor(
         imageUrl: './assets/mapa.png',
         imageWidth: 400,
         imageHeight: 200,
-        imageAlt: 'map.google.2019',
+        imageAlt: 'map.google.2019', //TODO --- crear mapa con API de google con LAT y LON
         confirmButtonColor: '#028e00',
         animation: false
       });
