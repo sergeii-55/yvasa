@@ -17,11 +17,11 @@ import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.gua
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
 //{ path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
-  { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
-  { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] }, // just this with authguard
+  { path: 'sign-in', component: SignInComponent, canActivate: [AuthGuard] },
+     { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] }, // just this with authguard
   { path: 'manager', component: ManagerComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'reporte', component: ReporteComponent, canActivate: [AuthGuard] },
-  { path: 'mail-user', component: MailUserComponent, canActivate: [AuthGuard] },
+{ path: 'mail-user', component: MailUserComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

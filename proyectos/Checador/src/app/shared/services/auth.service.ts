@@ -46,47 +46,53 @@ export class AuthService {
   // 2.    Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
+    .then((result : any) => {
       // FIXME  ---  revisar que no entre a este ciclo cuando se guarda el usuario, o revisar el log out
-      // if (result.additionalUserInfo.profile.hd == "yvasa.com") 
-      // {
-          // hacer la consulta para verificar si existe el correo solicitado
-        const userRef: AngularFirestoreDocument = this.afs.doc(`users/${result.user.email}`);
-        userRef.valueChanges().subscribe(res=>{
-          // si ya esta dado de alta lo manda al menu
-        if(res){
-          this.ngZone.run(() => {
-            this.router.navigate(['menu']);
-          })
-        }
-        // si no esta dado de alta lo manda al registro inicial de users
-        else{
-          // mensaje de registro o cancelacion
-          Swal.fire({
-            title: 'Este usuario no esta registrado',
-            text: "Deseas darlo de alta?",
-            type: 'error',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, registrarlo'
-          }).then((result) => {
-            if (result.value) {
+      if (result.additionalUserInfo.profile.hd == "yvasa.com") 
+      {
+              // hacer la consulta para verificar si existe el correo solicitado
+            const userRef: AngularFirestoreDocument = this.afs.doc(`users/${result.user.email}`);
+            userRef.valueChanges().subscribe(res=>{
+              // si ya esta dado de alta lo manda al menu
+            if(res){
               this.ngZone.run(() => {
-                this.router.navigate(['mail-user']);
+                this.router.navigate(['menu']);
               })
-
             }
-          })
-          
-          
-      //this.SetUserData(result.user);  //guarda user del result
-        }
-        } );
-        
-      
-     // this.SetUserData(result.user);
-      // }else{ window.alert("Dominio no valido. Ingresa con tu cuenta de @yvasa.com");}
+            // si no esta dado de alta lo manda al registro inicial de users
+            else{
+              // mensaje de registro o cancelacion
+              Swal.fire({
+                title: 'Este usuario no esta registrado',
+                text: "Deseas darlo de alta?",
+                type: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, registrarlo'
+              }).then((result) => {
+                if (result.value) {
+                  this.ngZone.run(() => {
+                    this.router.navigate(['mail-user']);
+                  })
+
+                }
+              })
+          //this.SetUserData(result.user);  //guarda user del result
+            }
+            } );
+      }else{
+        // mensaje de error para mostrar que no se esta logeando con dominio de @yvasa.com
+        Swal.fire({
+          title: 'Debes de entrar con tu correo de @yvasa.com',
+          type: 'error',
+          confirmButtonColor: 'orangered',
+          confirmButtonText: 'Aceptar'
+        })
+    
+         
+    // TODO --- crear el log out del explorer cuando el dominio no es de ivasa
+    }
     }).catch((error) => {
       window.alert(error)
     })
@@ -108,7 +114,7 @@ export class AuthService {
       merge: true
     })
   }
-  // Reporte
+  // menu
   menu() {
     this.ngZone.run(() => {
       this.router.navigate(['menu']);

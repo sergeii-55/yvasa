@@ -27,22 +27,27 @@ constructor(
   public LON:any;
   
   ngOnInit() {
+    this.coords();//libera el error de JS de conversion de tipo object
   }
 
-  // metodo que se activa al presionar el boton y llevar la informacion de entrada
-  async ChecarEntrada() {
+coords(){
+  //opciones para el metodo de getCurrentPosition //capturar latitud y longitud
+  var options = {
+    enableHighAccuracy: true, //mejora la posicion
+    timeout: 5000, //esperar no mas de 5 segs
+    maximumAge: 5000 //segundos de info guardada en dispositvo ...imagen no mas vieja a 5 segs
+  };
+  navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
+    var x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
+    this.LAT = x.latitude;
+    this.LON = x.longitude;
+  },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
+}
 
-        //opciones para el metodo de getCurrentPosition //capturar latitud y longitud
-        var options = {
-          enableHighAccuracy: true, //mejora la posicion
-          timeout: 5000, //esperar no mas de 5 segs
-          maximumAge: 5000 //segundos de info guardada en dispositvo ...imagen no mas vieja a 5 segs
-        };
-        navigator.geolocation.getCurrentPosition((pos: { coords: any }) => {
-          var x = pos.coords; //pasa los valores de pos a "x", para que no se pierdan en el transcurso
-          this.LAT = x.latitude;
-          this.LON = x.longitude;
-        },null,options); //valores extras, en null puede llevar un catch de error (mirar documentacion de mozilla de este metodo)
+  // metodo que se activa al presionar el boton y llevar la informacion de entrada
+  ChecarEntrada() {
+
+        this.coords();// extrae latitud y longitud nuevas
 
     // obtenemos la info del usuario previamente guardada en el .TS de auth.service. lo sacamos del storage del dispositivo
     var user = JSON.parse(localStorage.getItem('user'));
@@ -96,7 +101,7 @@ constructor(
     
     //regresa la consulta y con merge la fuciona(en caso de exitir en servidor. la reemplaza)
     try {
-      await userRef.set(tarjeta, {
+      userRef.set(tarjeta, {
         merge: true
       });
       Swal.fire({
@@ -115,11 +120,11 @@ constructor(
     }
    // TODO --- desabilitar boton de checar entrada y cambiarlo a "Entrada ya a sido checada"
   } // fin de checarEntrada()
-  async ChecarSalida(){
+  ChecarSalida(){
     
   }
 
-  async Entrada(){
+  Entrada(){
     Swal.fire({
       title: 'Registrado!',
       text: 'tu checada de Entrada a sido exitosa  -  latitud:'+this.LAT+" - longitud:"+this.LON,

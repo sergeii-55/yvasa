@@ -1,5 +1,3 @@
-import { Time } from '@angular/common';
-
 export interface Tarjeta {
     semana:number;
     periodo_de:string;
