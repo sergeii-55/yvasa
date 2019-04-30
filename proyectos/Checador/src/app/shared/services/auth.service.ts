@@ -55,6 +55,7 @@ export class AuthService {
             userRef.valueChanges().subscribe(res=>{
               // si ya esta dado de alta lo manda al menu
             if(res){
+              window.alert(res);
               this.ngZone.run(() => {
                 this.router.navigate(['menu']);
               })
@@ -92,6 +93,8 @@ export class AuthService {
     
          
     // TODO --- crear el log out del explorer cuando el dominio no es de ivasa
+        //localStorage.removeItem('user');  
+        
     }
     }).catch((error) => {
       window.alert(error)
