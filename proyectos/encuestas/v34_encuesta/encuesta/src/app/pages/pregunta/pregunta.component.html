@@ -15,7 +15,8 @@
 
 <p *ngFor="let i of informacionService.formularios">
  {{ i.lbl_datos }}
-</p>         
+</p>
+<br/>
 <form (ngSubmit)="newFormulario (newFormularioForm.value)" [formGroup]="newFormularioForm" style="margin-top: 0;">
  <div class="form-row">
     <div class="form-group col-sm-12 col-md-6 col-lg-6"  >

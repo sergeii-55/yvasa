@@ -4,7 +4,7 @@
             ¿El asesor de ventas le proporcionó de <i><b>manera clara</b></i> toda la información que solicitó?
         </p>
           </div>
-
+          <br/>
 <form (ngSubmit)="newPregunta4 (newPregunta4Form.value)" [formGroup]="newPregunta4Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
 
@@ -26,9 +26,9 @@
             <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>
             <br>
       </label>
-  </div>
+  </div><br/><br/>
         <div>
-        <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta4Form.valid" value="Siguiente">
+        <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta4Form.valid" value="Siguiente"><br/>
         <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>4 de 14</b></i></kbd></p>
         </div>
   </form>

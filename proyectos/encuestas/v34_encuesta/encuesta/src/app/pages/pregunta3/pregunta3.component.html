@@ -5,7 +5,7 @@
             ¿Cómo valoraría <i><b>la calidad de la información</b></i> recibida?
         </p>
           </div>
-
+          <br/>
 <form (ngSubmit)="newPregunta3 (newPregunta3Form.value)" [formGroup]="newPregunta3Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
   <div>
@@ -61,11 +61,11 @@
           <br>
           <label class="form-check-label" for="inlineRadio2">Buena</label>
         </label>
-</div>
+</div><br/>
 </div>
   </div>
   <div>
-      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta3Form.valid" value="Siguiente">
+      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta3Form.valid" value="Siguiente"><br/>
       <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>3 de 14</b></i></kbd></p>
   </div>
   </form>

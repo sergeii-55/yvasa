@@ -4,7 +4,7 @@
           ¿Cómo evaluaría <i><b>el precio</b></i> de las casas en relación <i><b>calidad/precio/ubicación?</b></i>
         </p>
     </div>
-
+    <br/>
  <form (ngSubmit)="newPregunta13 (newPregunta13Form.value)" [formGroup]="newPregunta13Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
 <div>
@@ -60,11 +60,11 @@
               <br>
               <label class="form-check-label" for="inlineRadio2">Buena</label>
             </label>
-</div>
+</div><br/>
 </div>
   </div>
   <div>
-      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta13Form.valid" value="Siguiente">
+      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta13Form.valid" value="Siguiente"><br/>
       <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>13 de 14</b></i></kbd></p>
   </div>
   </form>

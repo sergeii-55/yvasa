@@ -4,7 +4,7 @@
           ¿El asesor le entrego <i><b>folletería y su tarjeta de presentación</b></i>?
         </p>
     </div>
-
+    <br/>
 <form (ngSubmit)="newPregunta6 (newPregunta6Form.value)" [formGroup]="newPregunta6Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
 
@@ -26,9 +26,9 @@
             <label class="form-check-label" for="inlineRadio2">{{ lb_no }}</label>
             <br>
     </label>  
-  </div>
+  </div><br/><br/>
         <div>
-        <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta6Form.valid" value="Siguiente">
+        <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta6Form.valid" value="Siguiente"><br/>
         <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>6 de 14</b></i></kbd></p>
         </div>
 </form>

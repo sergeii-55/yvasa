@@ -55,7 +55,6 @@ export class AuthService {
             userRef.valueChanges().subscribe(res=>{
               // si ya esta dado de alta lo manda al menu
             if(res){
-              window.alert(res);
               this.ngZone.run(() => {
                 this.router.navigate(['menu']);
               })

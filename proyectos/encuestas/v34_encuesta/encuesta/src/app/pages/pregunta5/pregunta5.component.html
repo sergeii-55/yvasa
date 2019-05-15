@@ -4,7 +4,7 @@
             ¿Considera que el asesor se preocupó más por <i><b>proporcionarle ayuda</b></i><br/>de acuerdo a sus necesidades que en simplemente vender?
         </p>
     </div>
-
+    <br/>
 <form (ngSubmit)="newPregunta5 (newPregunta5Form.value)" [formGroup]="newPregunta5Form" ngNativeValidate >
   <input type="hidden" formControlName="id">
 
@@ -26,9 +26,9 @@
             <label class="form-check-label" for="inlineRadio2">{{ lb_feliz }}</label>
             <br>
         </label>   
-      </div>
+      </div><br/>
         <div>
-          <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta5Form.valid" value="Siguiente">
+          <input type="submit" class="btn-lg scbtn" [disabled]="!newPregunta5Form.valid" value="Siguiente"><br/>
           <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>5 de 14</b></i></kbd></p>
         </div>
   </form>

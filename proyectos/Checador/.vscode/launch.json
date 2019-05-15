@@ -7,14 +7,14 @@
       "type": "chrome",
       "request": "launch",
       "name": "Chrome against localhost",
-      "url": "http://localhost:4200",
+      "url": "http://localhost:4500",
       "webRoot": "${workspaceRoot}"
     },
     {
       "name": "Chrome : Launch with sourcemaps",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:4200",
+      "url": "http://localhost:4500",
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "runtimeArgs": [
@@ -26,7 +26,7 @@
       "name": "ng serve",
       "type": "firefox",
       "request": "launch",
-      "url": "http://localhost:4200/#",
+      "url": "http://localhost:4500/#",
       "webRoot": "${workspaceFolder}/proyectos/encuestas/v34_encuesta/encuesta"
     },
     {

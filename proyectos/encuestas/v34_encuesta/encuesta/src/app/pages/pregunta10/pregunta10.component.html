@@ -4,7 +4,7 @@
         ¿Cómo evaluaría <i><b>los tamaños</b></i> de las casas muestra?
         </p>
     </div>
-
+    <br/>
     <form (ngSubmit)="newPregunta10 (newPregunta10Form.value)" [formGroup]="newPregunta10Form" ngNativeValidate >
       <input type="hidden" formControlName="id">
 <div>
@@ -60,11 +60,11 @@
               <br>
               <label class="form-check-label" for="inlineRadio2">Buena</label>
             </label>
-</div>
+</div><br/>
 </div>
   </div>
   <div>
-      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta10Form.valid" value="Siguiente">
+      <input type="submit" class=" btn-lg scbtn" [disabled]="!newPregunta10Form.valid" value="Siguiente"><br/>
       <p style="text-align:right"><kbd style="padding-left: 50px;padding-right: 50px;">pregunta <i><b>10 de 14</b></i></kbd></p>
   </div>
   </form>
