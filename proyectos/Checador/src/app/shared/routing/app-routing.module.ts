@@ -12,13 +12,12 @@ import { MailUserComponent } from '../../components/mail-user/mail-user.componen
 
 // Import canActivate guard services
 import { AuthGuard } from "../../shared/guard/auth.guard";
-import { SecureInnerPagesGuard } from "../../shared/guard/secure-inner-pages.guard.ts.guard";
+import { SecureInnerPagesGuard } from "../guard/secure-inner-pages.guard";
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
-//{ path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
-  { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard] },
-     { path: 'menu', component: MenuComponent, canActivate: [AuthGuard] }, // just this with authguard
+  { path: 'sign-in', component: SignInComponent, canActivate: [AuthGuard] },
+     { path: 'menu', component: MenuComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'manager', component: ManagerComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'reporte', component: ReporteComponent, canActivate: [SecureInnerPagesGuard] },
 { path: 'mail-user', component: MailUserComponent, canActivate: [SecureInnerPagesGuard] },
