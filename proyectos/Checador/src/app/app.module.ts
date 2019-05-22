@@ -17,7 +17,7 @@ import { ReporteComponent } from './components/reporte/reporte.component';
 // Firebase services + enviroment module
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
@@ -41,9 +41,10 @@ import { MailUserComponent } from './components/mail-user/mail-user.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     ReactiveFormsModule
   ],
-  providers: [AuthService,{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [AuthService, AngularFirestore, { provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

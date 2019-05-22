@@ -16,7 +16,8 @@ export class AuthService {
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,  
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private db: AngularFirestore
   ) {    
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -38,21 +39,42 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
+
   // 1.    Sign in with Google.
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
+    return this.AuthLogin(new auth.GoogleAuthProvider())
+    .then((result) => {
+      this.checarMAIL();
+    }
+    );
+    
   }
 
   // 2.    Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
-              this.ngZone.run(() => {
+      
+      })
+  }
+
+  checarMAIL(){
+     const usuario = JSON.parse(localStorage.getItem('user')).email;
+      const userRef: AngularFirestoreDocument<any> = this.db.collection('users').doc(usuario);
+          userRef.get()
+          .toPromise()
+          .then(doc => {
+             if (doc.exists) {
+               this.ngZone.run(() => {
                 this.router.navigate(['menu']);
-              })
-    }).catch((error) => {
-      window.alert(error)
-    })
+               })
+             } else {
+              //TODO --- sweetalert de registro nuevo
+               window.alert('Noooooooooo');
+            }
+           }).catch((error) => {
+              window.alert(error);
+           })
   }
 
   /* Setting up user data when sign in with username/password, 
