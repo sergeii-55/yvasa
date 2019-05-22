@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": { "*": ["types/*"] },
     "types": ["node"],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
