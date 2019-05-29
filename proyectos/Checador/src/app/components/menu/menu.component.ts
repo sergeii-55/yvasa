@@ -1,10 +1,10 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
-import { Tarjeta } from 'src/app/shared/services/tarjeta';
+import { Tarjeta } from '../../shared/services/tarjeta';
 
 
 @Component({
@@ -69,7 +69,7 @@ coords(){
               { 
                 var retraso = "SIN RETRASO";
               }else if (pasa == true) 
-              {// calculo para sacar los minutos de retraso // TODO --- debera implementarse para cuando sea menor a las 8:00 am
+              {// calculo para sacar los minutos de retraso // TODO --"parece estar implementado"-- debera implementarse para cuando sea menor a las 8:00 am
                  var retraso = moment().subtract(8, "hours").format('HH:mm:ss').toString();
               }
     //codigo de periodo de semana 
@@ -83,7 +83,7 @@ coords(){
     const tarjeta: Tarjeta = { 
       dia:diaMo, //dia actual
       entrada:entradaMo,//hora de checada
-      // FIXME --- aqui trabajamos con el fingerprintJS para capturar datos no existentes como el area
+      // TODO --- aqui trabajamos con el fingerprintJS para capturar datos no existentes como el area
       grupo:"sistemas", // TODO --- falta como separarlos
       latitud:this.LAT, //latitud
       longitud:this.LON, //longitud
@@ -122,19 +122,6 @@ coords(){
   } // fin de checarEntrada()
   ChecarSalida(){
     
-  }
-
-  Entrada(){
-    Swal.fire({
-      title: 'Registrado!',
-      text: 'tu checada de Entrada a sido exitosa  -  latitud:'+this.LAT+" - longitud:"+this.LON,
-      imageUrl: './assets/mapa.png',
-      imageWidth: 400,
-      imageHeight: 200,
-      imageAlt: 'map.google.2019',
-      confirmButtonColor: '#028e00',
-      animation: false
-    })
   }
 
 }

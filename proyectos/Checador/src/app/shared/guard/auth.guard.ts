@@ -24,9 +24,15 @@ export class AuthGuard implements CanActivate {
     if(this.authService.isLoggedIn == true && JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") !=="yvasa.com") { 
       this.router.navigate(['sign-in'])
       
-      //TODO --- sweet alert aqui
-      window.alert("tu usuario registrado en este browser actual no es de ivasa, ok para reingresar uno correcto");
-      //limpiar el usuario actual en el localstorge 
+      //aviso de login desde el browser que ya tiene usuario registrado en localstorage
+      Swal.fire({
+        title: 'Registrado!',
+        text: 'tu usuario registrado en este browser actual no es de ivasa, ok para reingresar uno correcto',
+        confirmButtonColor: '#028e00',
+        animation: true
+      });
+
+      //limpiar el usuario actual en el localstorage 
       localStorage.removeItem('user');
     }
     return true;
