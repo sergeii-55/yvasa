@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { AuthService } from "../../shared/services/auth.service";
 import { Observable } from 'rxjs';
-import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -27,13 +27,10 @@ export class AuthGuard implements CanActivate {
       //aviso de login desde el browser que ya tiene usuario registrado en localstorage
       Swal.fire({
         title: 'Registrado!',
-        text: 'tu usuario registrado en este browser actual no es de ivasa, ok para reingresar uno correcto',
+        text: 'tu usuario registrado en este browser actual no es de ivasa.com, ok para reingresar uno correcto',
         confirmButtonColor: '#028e00',
         animation: true
       });
-
-      //limpiar el usuario actual en el localstorage 
-      localStorage.removeItem('user');
     }
     return true;
   }

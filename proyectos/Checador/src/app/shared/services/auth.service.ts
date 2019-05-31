@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  dadoDEalta = false;  //guarda valor cuando compara en el checarMAIL() que el usuario no esta dado de alta, para usarlo en secure-inner-pages
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -18,40 +19,42 @@ export class AuthService {
     public router: Router,  
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     private db: AngularFirestore
-  ) {    
+  ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        //FIXME --- capturar user actual y mandarlo a localstorage
-        //guarda el usuario login en user
-        localStorage.setItem('user', JSON.stringify(user));
-        this.userData = JSON.stringify(user);
-        window.alert(this.userData);
-        //guarda en variable usuario el correo de lo que esta actualmente en el user de localstorage
-        const usuario = JSON.parse(localStorage.getItem('user')).email;
-        //comparativa de usuario en localstorage
-        //si es igual a ivasa.com
-        if(usuario == null){
-        //  this.router.navigate(['sign-in']);
-        window.alert("email null!!!!!!!");
-        }
-        else if(JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") =="yvasa.com" )
+          //guarda el usuario en userData de manera global para mandarlo llamar en otros formularios
+          this.userData = user;
+          //guarda el usuario actual logeado
+          localStorage.setItem('user', JSON.stringify(this.userData));
+
+          //correo de yvasa.com
+          if(JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") =="yvasa.com" )
+            {
+              this.checarMAIL();
+            }
+            else
+            {
+              //alerta de dominio no correspondiente a yvasa.com
+              Swal.fire({
+                type: 'error',
+                title: 'Correo Incorrecto!',
+                html: `${this.userData.email}`+': no es correcto!',
+                footer: 'debes entrar con correo de yvasa.com',
+                confirmButtonColor: '#db1111',
+                animation: true
+              });
+              //limpiar el usuario actual en el localstorage 
+               localStorage.removeItem('user');
+            }
+      }
+      else 
           {
-            //redirecciona a sign in
-          //  this.router.navigate(['sign-in']);
-            window.alert("else if de auth.service.ts"+JSON.parse(localStorage.getItem('user')).email);
+            localStorage.setItem('user', null);
+            this.router.navigate(['sign-in']);
           }
-          //si no es igual a ivasa.com
-          else if(JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") !=="yvasa.com" ){
-            //lo pone en null
-         //   localStorage.setItem('user', null);
-            //redirecciona a sign in
-         //   this.router.navigate(['sign-in']);
-            window.alert(JSON.parse(localStorage.getItem('user')).email);
-          }
-      }  
-    })
+    });
   }
 
   // Returns true when user is looged in and email is verified
@@ -64,48 +67,61 @@ export class AuthService {
   // 1.    Sign in with Google.
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider())
-    .then((result) => {
-      
-    }
-    );
-    
+    .then(() => {
+    });
   }
 
   // 2.    Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
-      this.checarMAIL();
-      })
+    .then(() => {
+      });
   }
 
   checarMAIL(){
-    //FIXME --- bug de login doble. no encuestra el read de mail
-    window.alert("entrada en checarMail()       " + this.userData);
-     const usuario = JSON.parse(localStorage.getItem('user')).email;
+     /* FIXME bug DOBLE */
+
+     if (this.isLoggedIn !== true){
+
+      Swal.fire({
+        title: 'Log In!',
+        text: 'ingresa un correo de yvasa.com!',
+        confirmButtonColor: '#028e00',
+        animation: true
+      });
+
+     }
+     else
+     {
+      const usuario = JSON.parse(localStorage.getItem('user')).email;
       const userRef: AngularFirestoreDocument<any> = this.db.collection('users').doc(usuario);
           userRef.get()
           .toPromise()
           .then(doc => {
              if (doc.exists) {
                this.ngZone.run(() => {
+                this.dadoDEalta = doc.exists; //true
                 this.router.navigate(['menu']);
                })
              } else {
-               window.alert(" entrada "+usuario);
-                     //SWEETALERT - usuario no registrado //TODO --- implementar a mandar al registro de "user-mail"
+                    //TODO --- implementar a mandar al registro de "user-mail"
                     Swal.fire({
-                      title: 'Mail NO Registrado!',
-                      text: 'Este usuario no esta registrado!',
+                      title: 'correo NO Registrado!',
+                      html: `${usuario}`+': no esta registrado!',
                       footer: 'mail-user en construcción',
                       confirmButtonColor: '#028e00',
                       animation: true
                     });
+                    //limpiar usuario de localstorage para no permitir inyeccion de URL
+                    localStorage.removeItem('user');
+                    //guardar que el usuario no esta dado de alta en variable global
+                    this.dadoDEalta = doc.exists; //false
             }
            }).catch((error) => {
               window.alert(error);
            })
-           window.alert(" salida "+usuario);
+     }
+     
   }
 
   /* Setting up user data when sign in with username/password, 
@@ -122,25 +138,24 @@ export class AuthService {
     }
     return userRef.set(userData, {
       merge: true
-    })
+    });
   }
   // menu
   menu() {
     this.ngZone.run(() => {
       this.router.navigate(['menu']);
-    })
+    });
   }
   // Sign out 
   SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
+    this.ngZone.run(() => {
       this.router.navigate(['sign-in']);
-    })
+    });
   }
   // Reporte
   Reporte() {
     this.ngZone.run(() => {
       this.router.navigate(['reporte']);
-    })
+    });
   }
 }

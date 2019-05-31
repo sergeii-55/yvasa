@@ -47,7 +47,7 @@ coords(){
   // metodo que se activa al presionar el boton y llevar la informacion de entrada
   ChecarEntrada() {
 
-        this.coords();// extrae latitud y longitud nuevas
+    this.coords();// extrae latitud y longitud nuevas
 
     // obtenemos la info del usuario previamente guardada en el .TS de auth.service. lo sacamos del storage del dispositivo
     var user = JSON.parse(localStorage.getItem('user'));
@@ -59,7 +59,7 @@ coords(){
     //se preparan las variables para que se usaran en los datos de la tarjeta
       var semaMo = moment().week(); //numero de semana
       var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....) //TODO --- pasarlo a espanol
-      var entradaMo = moment().format('HH:mm:ss'); //Hora actual para el checado
+      var entradaMo = moment().format('HH:mm:ss'); //Hora actual del usuario para el checado
       var entradaCOMP = moment();
       var hoy = moment();
       hoy.set({hour:8,minute:0,second:0,millisecond:0});
@@ -93,6 +93,7 @@ coords(){
       retraso:retraso,  //calculo de minutos retrasados
       salida:null, //queda null por ser tarjeta de entrada
       semana:semaMo, //numero de semana
+      // TODO --- campo xtra1 sera para locacion del usuario
       xtra1:"", //campo 1 extra para futuras implementaciones ;-)
       xtra2:""  //campo 2 extra para futuras implementaciones ;-)
       // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
@@ -105,14 +106,11 @@ coords(){
         merge: true
       });
       Swal.fire({
+        type: 'success',
         title: 'Registrado!',
-        text: 'tu checada de Entrada a sido exitosa  -  latitud:' + this.LAT + " - longitud:" + this.LON,
-        imageUrl: './assets/mapa.png',
-        imageWidth: 400,
-        imageHeight: 200,
-        imageAlt: 'map.google.2019', //TODO --- crear mapa con API de google con LAT y LON
+        text: 'tu checada de Entrada a sido exitosa',
         confirmButtonColor: '#028e00',
-        animation: false
+        animation: true
       });
     }
     catch (error) {
@@ -122,6 +120,65 @@ coords(){
   } // fin de checarEntrada()
   ChecarSalida(){
     
+    this.coords();// extrae latitud y longitud nuevas
+
+    // obtenemos la info del usuario previamente guardada en el .TS de auth.service. lo sacamos del storage del dispositivo
+    var user = JSON.parse(localStorage.getItem('user'));
+    //variable para tiempo y conversion de meses a espanol
+    var year = new Date();
+    //lleva el 01_... - numero al inicio para un mejor acomodo en la BDD de firebase de google
+    var meses: string[] = ["01_Enero", "02_Febrero", "03_Marzo", "04_Abril", "05_Mayo", "06_Junio", "07_Julio", "08_Agosto", "09_Septiembre", "10_Octubre", "11_Noviembre", "12_Diciembre", ];
+    var mesActual = meses[year.getMonth()];
+    //se preparan las variables para que se usaran en los datos de la tarjeta
+      var semaMo = moment().week(); //numero de semana
+      var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....) //TODO --- pasarlo a espanol
+      var salidaMo = moment().format('HH:mm:ss'); //Hora actual para el checado
+      
+    //codigo de periodo de semana 
+    var now = moment();
+    var monday = now.clone().weekday(1).set({hour:0,minute:0,second:0,millisecond:0}).toString(); //Monday 
+    var sunday = now.clone().weekday(7).set({hour:23,minute:59,second:59,millisecond:0}).toString(); //Sunday 
+
+    //query de envio de datos x medio del AngularFirestoreDocument
+    const userRef: AngularFirestoreDocument<any> = this.afs.collection(year.getFullYear().toString()).doc(mesActual).collection('Semana'+semaMo).doc(user.displayName).collection(diaMo).doc("Salida");
+    //se prepara laclase tarjeta a mandar
+    const tarjeta: Tarjeta = { 
+      dia:diaMo, //dia actual
+      entrada:null,//queda null por ser tarjeta de salida
+      // TODO --- aqui trabajamos con el fingerprintJS para capturar datos no existentes como el area
+      grupo:"sistemas", // TODO --- falta como separarlos
+      latitud:this.LAT, //latitud
+      longitud:this.LON, //longitud
+      nombre:user.displayName,//nombre completo de usuario
+      periodo_de:monday, //inicio de semana actual segun fecha actual
+      periodo_a:sunday,  //fin de semana actual segun fecha actual
+      retraso:null,  //calculo de minutos retrasados
+      salida:salidaMo, //hora actual
+      semana:semaMo, //numero de semana
+      // TODO --- campo xtra1 sera para locacion del usuario
+      xtra1:"", //campo 1 extra para futuras implementaciones ;-)
+      xtra2:""  //campo 2 extra para futuras implementaciones ;-)
+      // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
+      // FIXME --- trabajar con fingerprintJS para adecuar una MAC
+    } 
+    
+    //regresa la consulta y con merge la fuciona(en caso de exitir en servidor. la reemplaza)
+    try {
+      userRef.set(tarjeta, {
+        merge: true
+      });
+      Swal.fire({
+        type: 'success',
+        title: 'Registrado!',
+        text: 'tu checada de Salida a sido exitosa',
+        confirmButtonColor: '#028e00',
+        animation: true
+      });
+    }
+    catch (error) {
+      window.alert(error);
+    }
+   // TODO --- desabilitar boton de checar entrada y cambiarlo a "Salida ya a sido checada"
   }
 
 }
