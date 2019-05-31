@@ -58,7 +58,13 @@ coords(){
     var mesActual = meses[year.getMonth()];
     //se preparan las variables para que se usaran en los datos de la tarjeta
       var semaMo = moment().week(); //numero de semana
-      var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....) //TODO --- pasarlo a espanol
+      
+      //arreglo para dias en espanol
+      var dias: string[] = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+      //dia actual
+      var estamos = moment().format('DD');
+      var diaMo = dias[year.getDay()]+"_"+estamos;
+      
       var entradaMo = moment().format('HH:mm:ss'); //Hora actual del usuario para el checado
       var entradaCOMP = moment();
       var hoy = moment();
@@ -131,7 +137,13 @@ coords(){
     var mesActual = meses[year.getMonth()];
     //se preparan las variables para que se usaran en los datos de la tarjeta
       var semaMo = moment().week(); //numero de semana
-      var diaMo = moment().format('dddd'); //dia actual (Monday, Thursday....) //TODO --- pasarlo a espanol
+
+      //arreglo para dias en espanol
+      var dias: string[] = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+      //dia actual
+      var estamos = moment().format('DD');
+      var diaMo = dias[year.getDay()]+"_"+estamos;
+
       var salidaMo = moment().format('HH:mm:ss'); //Hora actual para el checado
       
     //codigo de periodo de semana 
