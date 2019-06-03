@@ -11,5 +11,5 @@ export interface Tarjeta {
     longitud:number;
     retraso:string;
     xtra1:string;
-    xtra2:string;
+    diaNO:string;
  }
