@@ -61,6 +61,8 @@ coords(){
       
       //arreglo para dias en espanol
       var dias: string[] = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+      //orden de dia para sorteo
+      var orden: string[] = ["7","1","2","3","4","5","6"];
       //dia actual
       var estamos = moment().format('DD');
       var diaMo = dias[year.getDay()]+"_"+estamos;
@@ -101,7 +103,7 @@ coords(){
       semana:semaMo, //numero de semana
       // TODO --- campo xtra1 sera para locacion del usuario
       xtra1:"", //campo 1 extra para futuras implementaciones ;-)
-      xtra2:""  //campo 2 extra para futuras implementaciones ;-)
+      diaNO:orden[year.getDay()],  //captura orden para sorteo de reportes o tablas
       // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
       // FIXME --- trabajar con fingerprintJS para adecuar una MAC
     } 
@@ -140,6 +142,8 @@ coords(){
 
       //arreglo para dias en espanol
       var dias: string[] = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"];
+      //orden de dia para sorteo
+      var orden: string[] = ["7","1","2","3","4","5","6"];
       //dia actual
       var estamos = moment().format('DD');
       var diaMo = dias[year.getDay()]+"_"+estamos;
@@ -169,7 +173,7 @@ coords(){
       semana:semaMo, //numero de semana
       // TODO --- campo xtra1 sera para locacion del usuario
       xtra1:"", //campo 1 extra para futuras implementaciones ;-)
-      xtra2:""  //campo 2 extra para futuras implementaciones ;-)
+      diaNO:orden[year.getDay()],  //captura orden para sorteo de reportes o tablas
       // TODO --- capturar MAC address  -- no aplica. x seguridad? ;-(
       // FIXME --- trabajar con fingerprintJS para adecuar una MAC
     } 
