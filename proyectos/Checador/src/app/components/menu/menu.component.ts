@@ -28,6 +28,7 @@ constructor(
   
   ngOnInit() {
     this.coords();//libera el error de JS de conversion de tipo object
+    //TODO --- desabilitar boton de "Revisar Semana" en caso de existir registros en BDD,para no dejar pasar al usuario
   }
 
 coords(){
