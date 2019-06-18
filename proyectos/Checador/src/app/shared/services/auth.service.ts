@@ -100,8 +100,8 @@ export class AuthService {
           .then(doc => {
              if (doc.exists) {
                this.ngZone.run(() => {
-                this.dadoDEalta = doc.exists; //true
                 this.router.navigate(['menu']);
+                this.dadoDEalta = doc.exists; //true
                })
              } else {
                     //TODO --- implementar a mandar al registro de "user-mail"
@@ -149,13 +149,9 @@ export class AuthService {
   // Sign out 
   SignOut() {
     this.ngZone.run(() => {
+      localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
   }
-  // Reporte
-  Reporte() {
-    this.ngZone.run(() => {
-      this.router.navigate(['reporte']);
-    });
-  }
+  
 }

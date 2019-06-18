@@ -24,39 +24,6 @@ export class ReporteComponent implements OnInit {
 
   ngOnInit() {
  
-
   }
 
-
-
-
-
-
-
-
 }
-
-//   var db = firebase.firestore();
-
-//   db.collection('checadores').get()
-//  .then((snapshot) => {
-//    snapshot.forEach((doc) => {
-//      console.log(doc.id);
-//    });
-//  })
-//  .catch((err) => {
-//    console.log('Error getting documents', err);
-//  });
-
-// db.collection(year)
-// .doc(mesActual)
-// .collection(semana)
-// .doc(user.displayName)
-// .collection(diaMo)
-// .doc('Entrada').get()
-// .then((doc) => {
-//     console.log(doc.data());
-// })
-// .catch((err) => {
-//   console.log('Error getting documents', err);
-// });

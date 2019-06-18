@@ -25,13 +25,13 @@ constructor(
 
   public LAT:any;
   public LON:any;
-  public registro: any;
+  public registro:any;
   
-// BDD   
-public db = firebase.firestore(); //linea temporal //no borrar//
-// variables que consolidan el query para consulta
-// obtenemos la info del usuario del storage del dispositivo
-public user = JSON.parse(localStorage.getItem('user'));
+    // BDD   
+    public db = firebase.firestore(); //linea temporal //no borrar//
+    // variables que consolidan el query para consulta
+    // obtenemos la info del usuario del storage del dispositivo
+    public user = JSON.parse(localStorage.getItem('user'));
     //fecha completa
     public anio = new Date();
     // solo año
@@ -60,14 +60,27 @@ public user = JSON.parse(localStorage.getItem('user'));
       public Sa = "Sabado_"+this.extra.isoWeekday(6).date();
       public Do = "Domingo_"+this.extra.isoWeekday(7).date();
 
-
-
   ngOnInit() {
     this.coords();//libera el error de JS de conversion de tipo object
     this.existenRegistros();
+
+    setTimeout(() => {
+    this.botonActivo()
+    }, 2500);
+    
   }
 
-  coords(){
+  public botonActivo(){
+            if(this.registro==false){
+              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = true;
+            }else{
+              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false;
+              //! preparar el JSON con el reporte
+              this.reporte();
+            }
+  }
+
+  public coords(){
     //opciones para el metodo de getCurrentPosition //capturar latitud y longitud
     var options = {
       enableHighAccuracy: true, //mejora la posicion
@@ -140,6 +153,10 @@ public user = JSON.parse(localStorage.getItem('user'));
         text: 'tu checada de Entrada a sido exitosa',
         confirmButtonColor: '#028e00',
         animation: true
+      }).then((result)=> {
+        if(result.value){
+          window.location.reload();
+        }
       });
     }
     catch (error) {
@@ -195,6 +212,10 @@ public user = JSON.parse(localStorage.getItem('user'));
         text: 'tu checada de Salida a sido exitosa',
         confirmButtonColor: '#028e00',
         animation: true
+      }).then((result)=> {
+        if(result.value){
+          window.location.reload();
+        }
       });
     }
     catch (error) {
@@ -203,69 +224,42 @@ public user = JSON.parse(localStorage.getItem('user'));
    // TODO --- reload page script (para activar el reporte de semana)
   }
 
-  existenRegistros(){
+  public existenRegistros(){
         //* 1 revisar que existan registros en BDD segun la semana en la que se este ingresando en la App
-        var existenReg = this.db.collection(this.year)
+
+       this.afs.collection(this.year)
         .doc(this.mesActual)
         .collection(this.semana)
-        .doc(this.user.displayName)
-        .collection(this.diaMo)
-        .where("semana","==", this.semaMo);
-
-        existenReg.get()
-        .then(function (doc) {
-          if(doc.empty){
-            //! no existen registros
-            // TODO --- desabilitar boton de reporte de semana
-            this.registro=1;
+        .doc(this.user.displayName).get().toPromise()
+        .then(doc => {
+          if(doc.exists){
+            // si existen registros
+           this.registro=true;
           }
           else{
-            //! si existen registros
-            // TODO --- habilitar boton de reporte de semana
-            // variable global a true, que existen registros
-            this.registro=0;
+            // no existen registros
+            this.registro=false;
           }
         })
      }
 
   reporte(){
-      if (this.registro==true) {
-        
-        this.afs.collection(this.year)
-        .doc(this.mesActual)
-        .collection(this.semana)
-        //llega al nombre
-        .doc(this.user.displayName)
-        //ciclo FOR para dias
-        .collection('Lunes_03')
-        //ciclo para entrada / salida
-        .doc('Entrada').get().toPromise()
+
+var arrayDia=[ this.Lu, this.Ma, this.Mi, this.Ju, this.Vi, this.Sa, this.Do ];
+// primera parte del query para ciclo foreach
+var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.semana).doc(this.user.displayName)
+
+    arrayDia.forEach(dia => {
+      query1.collection(dia)
+      .doc('Entrada').get().toPromise()
         .then((snapshot) => {
               console.log(snapshot.data());
              });
+    });
 
-      }else{
-        
-      }
-    }
-  
+    }  
   }
 
-// .doc('Entrada' || 'Salida')
-        // .get()
-        // .then(function(doc) {
-        //   //* 1.2 si SI existen registros, habilita boton de reporte de semana
-        //   //* 1.3 si SI existen registros, crea reporte
-        //   if (doc.exists) {
-        //     console.log("SI existen registros");
-        //   }
-        //   //* 1.4 si NO existen registros, deshabilita boton de reporte de semana
-        //   else{  
-        //     console.log("NO existen registros");
-        //   }
-        // })
-        
-        
         
           
            // en esta seccion nos traemos todo el JSON
