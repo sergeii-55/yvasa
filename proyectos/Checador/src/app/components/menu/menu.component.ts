@@ -66,7 +66,7 @@ constructor(
 
     setTimeout(() => {
     this.botonActivo()
-    }, 2500);
+    }, 2000);
     
   }
 
@@ -245,17 +245,71 @@ constructor(
 
   reporte(){
 
+            //crea objeto por dia
+            //    var repoSemana = {
+            //      Lunes:{dia: "",entrada: "",salida: ""},
+            //     Martes:{dia: "",entrada: "",salida: ""},
+            //  Miercoles:{dia: "",entrada: "",salida: ""},
+            //     Jueves:{dia: "",entrada: "",salida: ""},
+            //    Viernes:{dia: "",entrada: "",salida: ""},
+            //     Sabado:{dia: "",entrada: "",salida: ""},
+            //    Domingo:{dia: "",entrada: "",salida: ""} 
+            //  }
+
+//array de dias para ciclo del query a consultar
 var arrayDia=[ this.Lu, this.Ma, this.Mi, this.Ju, this.Vi, this.Sa, this.Do ];
 // primera parte del query para ciclo foreach
 var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.semana).doc(this.user.displayName)
 
     arrayDia.forEach(dia => {
-      query1.collection(dia)
+      query1.collection(dia) // Lunes_17
       .doc('Entrada').get().toPromise()
         .then((snapshot) => {
-              console.log(snapshot.data());
+
+          if (snapshot.data()!==undefined) {
+            //* dia
+          console.log("Dia de entrada ==> "+snapshot.data().dia+"    hora = "+snapshot.data().entrada);
+
+          var repoSemana = JSON.stringify({[dia.replace(/_.*/, "")]:{ "dia": dia, "entrada": snapshot.data().entrada, "salida": "null" }});
+             localStorage.setItem('semanon', repoSemana);
+          }else{
+            console.log("Dia de entrada ==>  "+dia+"    hora = SIN CHECADA!! ");
+          }
+          
              });
+
     });
+   
+   
+            //!----------------------------
+            arrayDia.forEach(dia => {
+              query1.collection(dia)
+              .doc('Salida').get().toPromise()
+                .then((snapshot) => {
+                  
+                  if(snapshot.data()!==undefined){
+  
+                    console.log("Dia de salida ==> "+snapshot.data().dia+"    hora = "+snapshot.data().salida);
+  
+                  }else{
+                    console.log("Dia de salida ==>  "+dia+"    hora = SIN CHECADA!! ");
+                  }
+                  
+                    });
+                  });
+
+
+
+
+    // arrayDia.forEach(dia => {
+    //   query1.collection(dia)
+    //   .doc('Salida').get().toPromise()
+    //     .then((snapshot) => {
+    //           console.log(snapshot.data());
+    //          });
+    // });
+
+    
 
     }  
   }
