@@ -146,6 +146,12 @@ export class AuthService {
       this.router.navigate(['menu']);
     });
   }
+  // menu
+  reporte() {
+    this.ngZone.run(() => {
+      this.router.navigate(['reporte']);
+    });
+  }
   // Sign out 
   SignOut() {
     this.ngZone.run(() => {

@@ -70,6 +70,7 @@ constructor(
     
   }
 
+
   public botonActivo(){
             if(this.registro==false){
               (<HTMLInputElement> document.getElementById("reporteButton")).disabled = true;
@@ -245,16 +246,10 @@ constructor(
 
   reporte(){
 
-            //crea objeto por dia
-            //    var repoSemana = {
-            //      Lunes:{dia: "",entrada: "",salida: ""},
-            //     Martes:{dia: "",entrada: "",salida: ""},
-            //  Miercoles:{dia: "",entrada: "",salida: ""},
-            //     Jueves:{dia: "",entrada: "",salida: ""},
-            //    Viernes:{dia: "",entrada: "",salida: ""},
-            //     Sabado:{dia: "",entrada: "",salida: ""},
-            //    Domingo:{dia: "",entrada: "",salida: ""} 
-            //  }
+    //inicializa el array donde se guardaran los datos de los dias checados
+    //lo limpia en caso de estar lleno 
+    var aGuarda = [];
+    localStorage.setItem('reporteCard', JSON.stringify(aGuarda));
 
 //array de dias para ciclo del query a consultar
 var arrayDia=[ this.Lu, this.Ma, this.Mi, this.Ju, this.Vi, this.Sa, this.Do ];
@@ -267,20 +262,27 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
         .then((snapshot) => {
 
           if (snapshot.data()!==undefined) {
-            //* dia
-          console.log("Dia de entrada ==> "+snapshot.data().dia+"    hora = "+snapshot.data().entrada);
 
-          var repoSemana = JSON.stringify({[dia.replace(/_.*/, "")]:{ "dia": dia, "entrada": snapshot.data().entrada, "salida": "null" }});
-             localStorage.setItem('semanon', repoSemana);
+            var repoSemana = {["Entrada"]:{ "dia": dia, "Entrada": snapshot.data().entrada}};
+             
+            var aGuardar=[];
+            aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
+            aGuardar.push(repoSemana);
+            localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
+
           }else{
-            console.log("Dia de entrada ==>  "+dia+"    hora = SIN CHECADA!! ");
+
+            var repoSemanaNO = {["Entrada"]:{ "dia": dia, "Entrada": "Sin Checar"}};
+             
+            var aGuardar=[];
+            aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
+            aGuardar.push(repoSemanaNO);
+            localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
           }
           
              });
 
     });
-   
-   
             //!----------------------------
             arrayDia.forEach(dia => {
               query1.collection(dia)
@@ -289,29 +291,27 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
                   
                   if(snapshot.data()!==undefined){
   
-                    console.log("Dia de salida ==> "+snapshot.data().dia+"    hora = "+snapshot.data().salida);
+                    var repoSemana = {["Salida"]:{ "dia": dia, "Salida": snapshot.data().salida}};
+
+                    var aGuardar=[];
+                    aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
+                    aGuardar.push(repoSemana);
+                    localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
   
                   }else{
-                    console.log("Dia de salida ==>  "+dia+"    hora = SIN CHECADA!! ");
+                    var repoSemanaNO = {["Salida"]:{ "dia": dia, "Salida": "Sin Checar"}};
+             
+                    var aGuardar=[];
+                    aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
+                    aGuardar.push(repoSemanaNO);
+                    localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
                   }
                   
                     });
                   });
-
-
-
-
-    // arrayDia.forEach(dia => {
-    //   query1.collection(dia)
-    //   .doc('Salida').get().toPromise()
-    //     .then((snapshot) => {
-    //           console.log(snapshot.data());
-    //          });
-    // });
-
     
-
-    }  
+        
+      }  
   }
 
         
@@ -341,3 +341,14 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
           //    //lee objeto
           //   console.log("JSON saved  ==>>",JSON.parse(localStorage.getItem('saved')));
   
+
+            //crea objeto por dia
+            //    var repoSemana = {
+            //      Lunes:{dia: "",entrada: "",salida: ""},
+            //     Martes:{dia: "",entrada: "",salida: ""},
+            //  Miercoles:{dia: "",entrada: "",salida: ""},
+            //     Jueves:{dia: "",entrada: "",salida: ""},
+            //    Viernes:{dia: "",entrada: "",salida: ""},
+            //     Sabado:{dia: "",entrada: "",salida: ""},
+            //    Domingo:{dia: "",entrada: "",salida: ""} 
+            //  }

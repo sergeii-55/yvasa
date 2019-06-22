@@ -19,11 +19,14 @@ export class ReporteComponent implements OnInit {
     public authService: AuthService,
     public router: Router,
     public ngZone: NgZone,
-   
+    
   ) { }
+  public reporte: []
 
   ngOnInit() {
- 
+    //carga el JSON con el reporte guardado
+    let carta = JSON.parse(localStorage.getItem('reporteCard'));
+    this.reporte = carta;
   }
 
 }

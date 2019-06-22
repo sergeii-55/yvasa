@@ -10,45 +10,26 @@
   </thead>
 
   <tbody>
-      <tr class="pure-table-odd">
-          <td>4/oct</td>
+      <!-- <tr class="pure-table-odd">
+          <td>{{reporte.Entrada}}</td>
           <td>8:00am</td>
           <td>7:01pm</td>
-      </tr>
+      </tr> -->
 
-      <tr>
-          <td>5/oct</td>
-          <td>8:01am</td>
-          <td>6:33pm</td>
-      </tr>
+      <tr *ngFor="let val of reporte;" class="pure-table-odd">   
+                <td>{{ val.Entrada.dia }}</td>
+          </tr>
+<!-- 
+<div *ngFor="let val of reporte;">
+    <div *ngFor="let can of reporte">
+        <tr><th>{{can.Entrada.dia}}</th><td>{{val.Entrada.Entrada}}</td></tr>
+    </div>
+</div> -->
 
-      <tr class="pure-table-odd">
-          <td>6/oct</td>
-          <td>7:56am</td>
-          <td>6:31pm</td>
-      </tr>
-
-      <tr>
-          <td>7/oct</td>
-          <td>7:52am</td>
-          <td>6:30pm</td>
-      </tr>
-
-      <tr class="pure-table-odd">
-          <td>8/oct</td>
-          <td>8:00am</td>
-          <td>6:34pm</td> 
-      </tr>
 
   </tbody>
 </table><br/>
-<div class="row" *ngIf="authService.userData as user">
-<p>Email: </p><strong>{{user.email}}</strong>
-<p>creacion: </p><strong>{{user.creationTime}}</strong>
-<p>lastLogIn: </p><strong>{{user.lastSignInTime}}</strong>
-<p>Change 1.1</p>
-<p>Change 1.2</p>
-</div>
+
 <div class="redirectToLogin">
             <button class="btn btn-block btn-primary" (click)="authService.menu()">Regresar</button>
     <br/>     
