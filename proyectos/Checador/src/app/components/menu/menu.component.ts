@@ -73,7 +73,7 @@ constructor(
 
   public botonActivo(){
             if(this.registro==false){
-              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = true;
+              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false; //true
             }else{
               (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false;
               //! preparar el JSON con el reporte
@@ -309,46 +309,6 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
                   
                     });
                   });
-    
-        
+
       }  
   }
-
-        
-          
-           // en esta seccion nos traemos todo el JSON
-        // this.afs.collection(year)
-        // .doc(mesActual)
-        // .collection(semana)
-        // //llega al nombre
-        // .doc(user.displayName)
-        // //ciclo FOR para dias
-        // .collection('Lunes_03')
-        // //ciclo para entrada / salida
-        // .doc('Entrada').get().toPromise()
-        // .then((snapshot) => {
-        //       console.log(snapshot.data());
-        //      });
-   
-            //crea objeto
-          //      var myObj = {
-          //        firstname: "sergeii",
-          //        lastname: "villa",
-          //        website: "https://www.ajillo.com"
-          //    }
-          //    //guarda
-          //    localStorage.setItem('saved', JSON.stringify(myObj));
-          //    //lee objeto
-          //   console.log("JSON saved  ==>>",JSON.parse(localStorage.getItem('saved')));
-  
-
-            //crea objeto por dia
-            //    var repoSemana = {
-            //      Lunes:{dia: "",entrada: "",salida: ""},
-            //     Martes:{dia: "",entrada: "",salida: ""},
-            //  Miercoles:{dia: "",entrada: "",salida: ""},
-            //     Jueves:{dia: "",entrada: "",salida: ""},
-            //    Viernes:{dia: "",entrada: "",salida: ""},
-            //     Sabado:{dia: "",entrada: "",salida: ""},
-            //    Domingo:{dia: "",entrada: "",salida: ""} 
-            //  }

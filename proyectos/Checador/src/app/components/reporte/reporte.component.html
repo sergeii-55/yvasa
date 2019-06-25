@@ -8,26 +8,16 @@
           <th>Salida</th>
       </tr>
   </thead>
+<tbody>
+      <tr *ngFor="let val of reporte; let i = index" class="pure-table-odd">   
+                <td *ngIf="i < 7">{{ val.Entrada.dia }} </td>
+                <td *ngIf="i < 7">{{ val.Entrada.Entrada }}</td>
+                    <div *ngFor="let vol of reporte; let o = index;">
+                        <td *ngIf="o == 7">{{ vol.Salida.Salida }}</td>
+                    </div>
 
-  <tbody>
-      <!-- <tr class="pure-table-odd">
-          <td>{{reporte.Entrada}}</td>
-          <td>8:00am</td>
-          <td>7:01pm</td>
-      </tr> -->
-
-      <tr *ngFor="let val of reporte;" class="pure-table-odd">   
-                <td>{{ val.Entrada.dia }}</td>
-          </tr>
-<!-- 
-<div *ngFor="let val of reporte;">
-    <div *ngFor="let can of reporte">
-        <tr><th>{{can.Entrada.dia}}</th><td>{{val.Entrada.Entrada}}</td></tr>
-    </div>
-</div> -->
-
-
-  </tbody>
+    </tr>
+</tbody>
 </table><br/>
 
 <div class="redirectToLogin">
