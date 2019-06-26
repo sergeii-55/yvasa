@@ -255,7 +255,7 @@ constructor(
 var arrayDia=[ this.Lu, this.Ma, this.Mi, this.Ju, this.Vi, this.Sa, this.Do ];
 // primera parte del query para ciclo foreach
 var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.semana).doc(this.user.displayName)
-
+var c=0;
     arrayDia.forEach(dia => {
       query1.collection(dia) // Lunes_17
       .doc('Entrada').get().toPromise()
@@ -263,7 +263,8 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
 
           if (snapshot.data()!==undefined) {
 
-            var repoSemana = {["Entrada"]:{ "dia": dia, "Entrada": snapshot.data().entrada}};
+                // 
+            var repoSemana = {[dia.replace(/_.*/, "")]:{ "dia": dia, "Entrada": snapshot.data().entrada}};
              
             var aGuardar=[];
             aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
@@ -272,7 +273,7 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
 
           }else{
 
-            var repoSemanaNO = {["Entrada"]:{ "dia": dia, "Entrada": "Sin Checar"}};
+            var repoSemanaNO = {[dia.replace(/_.*/, "")]:{ "dia": dia, "Entrada": "Sin Checar"}};
              
             var aGuardar=[];
             aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
@@ -290,21 +291,32 @@ var query1 = this.afs.collection(this.year).doc(this.mesActual).collection(this.
                 .then((snapshot) => {
                   
                   if(snapshot.data()!==undefined){
-  
-                    var repoSemana = {["Salida"]:{ "dia": dia, "Salida": snapshot.data().salida}};
+                    //var repoSemana = {[dia.replace(/_.*/, "")]:{ "dia": dia, "Salida": snapshot.data().salida}};
 
                     var aGuardar=[];
+                    //lee el array 0 "Lunes"
                     aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
+                    var salDia = aGuardar[c][dia.replace(/_.*/, "")].dia;
+                    var salEnt = aGuardar[c][dia.replace(/_.*/, "")].Entrada;
+                    var repoSemana = {["finalCARD"]:{ "dia": salDia, "Entrada":salEnt ,"Salida": snapshot.data().salida}};
+
+                    //! cambiar los datos con los ya existentes segun el dia
                     aGuardar.push(repoSemana);
                     localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
-  
+                    c++;
                   }else{
-                    var repoSemanaNO = {["Salida"]:{ "dia": dia, "Salida": "Sin Checar"}};
+                    //var repoSemanaNO = {[dia.replace(/_.*/, "")]:{ "dia": dia, "Salida": "Sin Checar"}};
              
-                    var aGuardar=[];
-                    aGuardar=JSON.parse(localStorage.getItem('reporteCard'));
-                    aGuardar.push(repoSemanaNO);
-                    localStorage.setItem('reporteCard', JSON.stringify(aGuardar));
+                    var aGuardarNO=[];
+                    //lee el array 0 "Lunes"
+                    aGuardarNO=JSON.parse(localStorage.getItem('reporteCard'));
+                    var salDiaNO = aGuardarNO[c][dia.replace(/_.*/, "")].dia;
+                    var salEntNO = aGuardarNO[c][dia.replace(/_.*/, "")].Entrada;
+                    var repoSemanaNO = {["finalCARD"]:{ "dia": salDiaNO, "Entrada":salEntNO ,"Salida": "Sin Checar"}};
+
+                    aGuardarNO.push(repoSemanaNO);
+                    localStorage.setItem('reporteCard', JSON.stringify(aGuardarNO));
+                    c++;
                   }
                   
                     });

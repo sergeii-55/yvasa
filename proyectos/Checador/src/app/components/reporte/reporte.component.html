@@ -10,12 +10,9 @@
   </thead>
 <tbody>
       <tr *ngFor="let val of reporte; let i = index" class="pure-table-odd">   
-                <td *ngIf="i < 7">{{ val.Entrada.dia }} </td>
-                <td *ngIf="i < 7">{{ val.Entrada.Entrada }}</td>
-                    <div *ngFor="let vol of reporte; let o = index;">
-                        <td *ngIf="o == 7">{{ vol.Salida.Salida }}</td>
-                    </div>
-
+                <td *ngIf="i > 6">{{ val.finalCARD.dia }} </td>
+                <td *ngIf="i > 6">{{ val.finalCARD.Entrada }}</td>
+                <td *ngIf="i > 6">{{ val.finalCARD.Salida }}</td>
     </tr>
 </tbody>
 </table><br/>
