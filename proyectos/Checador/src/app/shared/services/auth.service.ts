@@ -46,13 +46,19 @@ export class AuthService {
                 animation: true
               });
               //limpiar el usuario actual en el localstorage 
-               localStorage.removeItem('user');
+              //! new logout
+                  this.afAuth.auth.signOut().then(() => {
+                    localStorage.removeItem('user');
+                    this.router.navigate(['sign-in']);
+                  })
             }
       }
       else 
           {
-            localStorage.setItem('user', null);
-            this.router.navigate(['sign-in']);
+            this.afAuth.auth.signOut().then(() => {
+              localStorage.removeItem('user');
+              this.router.navigate(['sign-in']);
+            })
           }
     });
   }
@@ -67,15 +73,11 @@ export class AuthService {
   // 1.    Sign in with Google.
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider())
-    .then(() => {
-    });
   }
 
   // 2.    Auth logic to run auth providers
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
-    .then(() => {
-      });
   }
 
   checarMAIL(){
@@ -154,10 +156,10 @@ export class AuthService {
   }
   // Sign out 
   SignOut() {
-    this.ngZone.run(() => {
+    return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
-    });
+    })
   }
   
 }

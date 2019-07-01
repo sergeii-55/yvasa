@@ -52,34 +52,34 @@ constructor(
 
       //variables para reporte diario
       public extra = moment();
-      public Lu = "Lunes_"+this.extra.isoWeekday(1).date();
-      public Ma = "Martes_"+this.extra.isoWeekday(2).date();
-      public Mi = "Miercoles_"+this.extra.isoWeekday(3).date();
-      public Ju = "Jueves_"+this.extra.isoWeekday(4).date();
-      public Vi = "Viernes_"+this.extra.isoWeekday(5).date();
-      public Sa = "Sabado_"+this.extra.isoWeekday(6).date();
-      public Do = "Domingo_"+this.extra.isoWeekday(7).date();
+      public Lu = "Lunes_0"+this.extra.isoWeekday(1).date();
+      public Ma = "Martes_0"+this.extra.isoWeekday(2).date();
+      public Mi = "Miercoles_0"+this.extra.isoWeekday(3).date();
+      public Ju = "Jueves_0"+this.extra.isoWeekday(4).date();
+      public Vi = "Viernes_0"+this.extra.isoWeekday(5).date();
+      public Sa = "Sabado_0"+this.extra.isoWeekday(6).date();
+      public Do = "Domingo_0"+this.extra.isoWeekday(7).date();
 
   ngOnInit() {
     this.coords();//libera el error de JS de conversion de tipo object
     this.existenRegistros();
 
-    setTimeout(() => {
-    this.botonActivo()
-    }, 2000);
+    // setTimeout(() => {
+    // this.botonActivo()
+    // }, 2000);
+
+    this.reporte();
     
   }
 
 
-  public botonActivo(){
-            if(this.registro==false){
-              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false; //true
-            }else{
-              (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false;
-              //! preparar el JSON con el reporte
-              this.reporte();
-            }
-  }
+  // public botonActivo(){
+  //           if(this.registro==false){
+  //             (<HTMLInputElement> document.getElementById("reporteButton")).disabled = true; //true
+  //           }else{
+  //             (<HTMLInputElement> document.getElementById("reporteButton")).disabled = false;
+  //           }
+  // }
 
   public coords(){
     //opciones para el metodo de getCurrentPosition //capturar latitud y longitud
@@ -156,7 +156,7 @@ constructor(
         animation: true
       }).then((result)=> {
         if(result.value){
-          window.location.reload();
+          this.reporte();
         }
       });
     }
@@ -215,7 +215,7 @@ constructor(
         animation: true
       }).then((result)=> {
         if(result.value){
-          window.location.reload();
+          this.reporte();
         }
       });
     }
