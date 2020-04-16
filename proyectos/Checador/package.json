@@ -12,17 +12,17 @@
   "private": true,
   "dependencies": {
     "@agm/core": "^1.0.0-beta.6",
-    "@angular/animations": "^7.2.15",
+    "@angular/animations": "^9.1.2",
     "@angular/cdk": "^7.3.7",
-    "@angular/common": "^7.2.15",
-    "@angular/compiler": "^7.2.15",
-    "@angular/core": "^7.2.15",
+    "@angular/common": "^9.1.2",
+    "@angular/compiler": "^9.1.2",
+    "@angular/core": "^9.1.2",
     "@angular/fire": "^5.2.1",
-    "@angular/forms": "^7.2.15",
+    "@angular/forms": "^9.1.2",
     "@angular/material": "^7.3.7",
-    "@angular/platform-browser": "^7.2.15",
-    "@angular/platform-browser-dynamic": "^7.2.15",
-    "@angular/router": "^7.2.15",
+    "@angular/platform-browser": "^9.1.2",
+    "@angular/platform-browser-dynamic": "^9.1.2",
+    "@angular/router": "^9.1.2",
     "angularfire2": "^5.2.1",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
@@ -31,17 +31,17 @@
     "handlebars": "^4.1.2",
     "moment": "^2.24.0",
     "require": "^2.4.20",
-    "rxjs": "~6.3.3",
+    "rxjs": "~6.5.5",
     "rxjs-compat": "^6.5.2",
     "sweetalert2": "^8.11.7",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.8.26"
+    "tslib": "^1.11.1",
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.9",
     "@angular/cli": "^7.3.9",
     "@angular/compiler-cli": "^7.2.15",
-    "@angular/language-service": "^7.2.15",
+    "@angular/language-service": "^9.1.2",
     "@types/googlemaps": "^3.36.2",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
@@ -57,6 +57,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.1.1"
   }
 }
