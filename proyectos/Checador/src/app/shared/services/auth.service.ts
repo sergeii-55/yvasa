@@ -16,11 +16,11 @@ export class AuthService {
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router,  
+    public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
     private db: AngularFirestore
   ) {
-    /* Saving user data in localstorage when 
+    /* Saving user data in localstorage when
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -45,7 +45,7 @@ export class AuthService {
                 confirmButtonColor: '#db1111',
                 animation: true
               });
-              //limpiar el usuario actual en el localstorage 
+              //limpiar el usuario actual en el localstorage
               //! new logout
                   this.afAuth.auth.signOut().then(() => {
                     localStorage.removeItem('user');
@@ -53,7 +53,7 @@ export class AuthService {
                   })
             }
       }
-      else 
+      else
           {
             this.afAuth.auth.signOut().then(() => {
               localStorage.removeItem('user');
@@ -123,11 +123,11 @@ export class AuthService {
               window.alert(error);
            })
      }
-     
+
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
+  /* Setting up user data when sign in with username/password,
+  sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.email}`);
@@ -154,12 +154,12 @@ export class AuthService {
       this.router.navigate(['reporte']);
     });
   }
-  // Sign out 
+  // Sign out
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
   }
-  
+
 }
