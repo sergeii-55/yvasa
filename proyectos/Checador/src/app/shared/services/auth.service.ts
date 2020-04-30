@@ -6,13 +6,14 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from "@angular/router";
 import Swal from 'sweetalert2';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any; // Save logged in user data
   dadoDEalta = false;  //guarda valor cuando compara en el checarMAIL() que el usuario no esta dado de alta, para usarlo en secure-inner-pages
-
+  pase = true;
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -30,7 +31,7 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(this.userData));
 
           //correo de yvasa.com
-          if(JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") =="yvasa.com" )
+          if(JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") !="yvasa.com" )
             {
               this.checarMAIL();
             }

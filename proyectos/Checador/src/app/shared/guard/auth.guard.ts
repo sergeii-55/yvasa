@@ -21,9 +21,9 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       //aqui se obtiene la terminacion del correo
-    if(this.authService.isLoggedIn == true && JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") !=="yvasa.com") { 
+    if(this.authService.isLoggedIn == true && JSON.parse(localStorage.getItem('user')).email.replace(/.*@/, "") =="yvasa.com") {
       this.router.navigate(['sign-in'])
-      
+
       //aviso de login desde el browser que ya tiene usuario registrado en localstorage
       Swal.fire({
         title: 'Registrado!',
